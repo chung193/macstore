@@ -1,0 +1,13 @@
+STT,Tên nhà cung cấp,ảnh,url,,Quy tắc
+1,Apple,Apple_logo.png,https://www.apple.com/,,"ảnh điền tên file ảnh sau đó gửi cho e 1 thư mục có ảnh đã điền tên, file ảnh đó phải là file logo đã tách nền"
+2,HP,HP_logo.png,https://www.hp.com/vn-vi/home.html,,
+3,Dell,Dell_logo.png,https://www.dell.com/en-vn,,
+4,"Lenovo",Lenovo_logo.png,https://www.lenovo.com/vn/vn/,,
+5,"
+MSI",MSI_logo.png,https://vn.msi.com/,,
+6,"Acer",Acer_logo.png,https://www.acer.com/vn-vi/,,
+7,"Asus",Asus_logo.png,https://www.asus.com/vn/,,
+8,Fujitsu,Fujitsu_logo.png,https://www.fujitsu.com/vn/vi/,,
+9,Toshiba,Toshiba_logo.png,https://www.toshiba.com/tai/,,
+10,NEC,NEC_logo.png,https://vn.nec.com/,,
+11,Microsoft,Microsoft_logo.png,https://www.microsoft.com/vi-vn,,

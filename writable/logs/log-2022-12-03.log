@@ -1,0 +1,332 @@
+CRITICAL - 2022-12-03 02:57:42 --> The namespace delimiter is a backslash (\), not a slash (/). Route handler: \App\Controllers\frontend/Home::index
+in SYSTEMPATH\Router\Router.php on line 466.
+ 1 SYSTEMPATH\Router\Router.php(466): CodeIgniter\Router\Exceptions\RouterException::forInvalidControllerName('\\App\\Controllers\\frontend/Home::index')
+ 2 SYSTEMPATH\Router\Router.php(181): CodeIgniter\Router\Router->checkRoutes('C:\\')
+ 3 SYSTEMPATH\CodeIgniter.php(802): CodeIgniter\Router\Router->handle('C:\\')
+ 4 SYSTEMPATH\CodeIgniter.php(430): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-03 02:58:23 --> mysqli_sql_exception: Table 'ci4_shop2.shop_info' doesn't exist in C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ci4shop2\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ci4shop2\app\Models\frontend\Info_model.php(12): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4shop2\app\Controllers\frontend\Home.php(27): App\Models\frontend\Info_model->getInfo()
+#6 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+#7 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+#8 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ci4shop2\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-03 02:58:23 --> Table 'ci4_shop2.shop_info' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `shop_info`
+WHERE `id` = 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `shop_info`
+WHERE `id` = 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `shop_info`
+WHERE `id` = 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `shop_info`
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH\Models\frontend\Info_model.php(12): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\frontend\Home.php(27): App\Models\frontend\Info_model->getInfo()
+ 7 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+ 8 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-03 02:59:20 --> mysqli_sql_exception: Table 'ci4_shop2.shop_slider' doesn't exist in C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ci4shop2\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ci4shop2\app\Models\frontend\Shop_Slider_model.php(10): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4shop2\app\Controllers\frontend\Home.php(29): App\Models\frontend\Shop_slider_model->getSlider()
+#6 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+#7 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+#8 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ci4shop2\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-03 02:59:20 --> Table 'ci4_shop2.shop_slider' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `shop_slider`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `shop_slider`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `shop_slider`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `shop_slider`', [], false)
+ 5 APPPATH\Models\frontend\Shop_Slider_model.php(10): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\frontend\Home.php(29): App\Models\frontend\Shop_slider_model->getSlider()
+ 7 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+ 8 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-03 02:59:31 --> mysqli_sql_exception: Unknown column 'shop_category.name' in 'field list' in C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `shop_pr...', 0)
+#1 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `shop_pr...')
+#2 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `shop_pr...')
+#3 C:\xampp\htdocs\ci4shop2\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `shop_pr...', Array, false)
+#4 C:\xampp\htdocs\ci4shop2\app\Models\frontend\Shop_Product_model.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4shop2\app\Controllers\frontend\Home.php(31): App\Models\frontend\Shop_Product_model->getArrivalsProduct(10)
+#6 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+#7 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+#8 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ci4shop2\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-03 02:59:31 --> Unknown column 'shop_category.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10', [], false)
+ 5 APPPATH\Models\frontend\Shop_Product_model.php(112): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\frontend\Home.php(31): App\Models\frontend\Shop_Product_model->getArrivalsProduct(10)
+ 7 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+ 8 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-03 03:00:12 --> mysqli_sql_exception: Unknown column 'shop_category.name' in 'field list' in C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `shop_pr...', 0)
+#1 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `shop_pr...')
+#2 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `shop_pr...')
+#3 C:\xampp\htdocs\ci4shop2\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `shop_pr...', Array, false)
+#4 C:\xampp\htdocs\ci4shop2\app\Models\frontend\Shop_Product_model.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4shop2\app\Controllers\frontend\Home.php(31): App\Models\frontend\Shop_Product_model->getArrivalsProduct(10)
+#6 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+#7 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+#8 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ci4shop2\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-03 03:00:12 --> Unknown column 'shop_category.name' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT `shop_product`.*, `shop_producer`.`name` as `proc_name`, `shop_category`.`name` as `cat_name`, `shop_discount`.`title`, `shop_discount`.`id` as `dcid`, `shop_discount`.`ratio`, `shop_discount`.`slug` as `dslug`, `shop_discount`.`money`, `shop_discount`.`from_date`, `shop_discount`.`to_date`
+FROM `shop_product`
+JOIN `shop_producer` ON `shop_producer`.`id` = `shop_product`.`producer_id`
+JOIN `shop_category` ON `shop_category`.`id` = `shop_product`.`category_id`
+JOIN `shop_discount` ON `shop_discount`.`id` = `shop_product`.`id_discount`
+ORDER BY `created_at` DESC
+ LIMIT 10', [], false)
+ 5 APPPATH\Models\frontend\Shop_Product_model.php(112): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\frontend\Home.php(31): App\Models\frontend\Shop_Product_model->getArrivalsProduct(10)
+ 7 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+ 8 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-03 03:00:28 --> mysqli_sql_exception: Table 'ci4_shop2.shop_banner' doesn't exist in C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\ci4shop2\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ci4shop2\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ci4shop2\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ci4shop2\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ci4shop2\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\ci4shop2\app\Models\frontend\Banner_model.php(11): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\ci4shop2\app\Controllers\frontend\Home.php(35): App\Models\frontend\Banner_model->getbanner()
+#8 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+#9 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+#10 C:\xampp\htdocs\ci4shop2\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\ci4shop2\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-12-03 03:00:28 --> Table 'ci4_shop2.shop_banner' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `shop_banner`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `shop_banner`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `shop_banner`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `shop_banner`', [], false)
+ 5 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\frontend\Banner_model.php(11): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\frontend\Home.php(35): App\Models\frontend\Banner_model->getbanner()
+ 9 SYSTEMPATH\CodeIgniter.php(889): App\Controllers\frontend\Home->__construct()
+10 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 03:01:20 --> Undefined array key "name"
+in APPPATH\Views\frontend\layouts\header.php on line 136.
+ 1 APPPATH\Views\frontend\layouts\header.php(136): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Views\\frontend\\layouts\\header.php', 136)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layouts\\header.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layouts/header', [], true)
+ 5 APPPATH\Views\frontend\layout.php(38): view('frontend/layouts/header', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 9 APPPATH\Controllers\frontend\Home.php(53): view('frontend/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Home))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 03:01:49 --> Undefined array key "name"
+in APPPATH\Views\frontend\component\desktop-menu.php on line 32.
+ 1 APPPATH\Views\frontend\component\desktop-menu.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Views\\frontend\\component\\desktop-menu.php', 32)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\component\\desktop-menu.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/component/desktop-menu', [], true)
+ 5 APPPATH\Views\frontend\layouts\header.php(165): view('frontend/component/desktop-menu', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layouts\\header.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layouts/header', [], true)
+ 9 APPPATH\Views\frontend\layout.php(38): view('frontend/layouts/header', [...])
+10 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+11 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+12 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+13 APPPATH\Controllers\frontend\Home.php(53): view('frontend/layout', [...])
+14 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Home->index()
+15 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Home))
+16 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+17 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 03:02:21 --> Undefined array key "name"
+in APPPATH\Views\frontend\contents\home\index.php on line 147.
+ 1 APPPATH\Views\frontend\contents\home\index.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Views\\frontend\\contents\\home\\index.php', 147)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\contents\\home\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/frontend/contents/home/index', [], true)
+ 5 APPPATH\Views\frontend\layout.php(40): view('/frontend/contents/home/index', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 9 APPPATH\Controllers\frontend\Home.php(53): view('frontend/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Home))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 03:02:58 --> Undefined array key "name"
+in APPPATH\Views\frontend\contents\home\index.php on line 149.
+ 1 APPPATH\Views\frontend\contents\home\index.php(149): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "name"', 'APPPATH\\Views\\frontend\\contents\\home\\index.php', 149)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\contents\\home\\index.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/frontend/contents/home/index', [], true)
+ 5 APPPATH\Views\frontend\layout.php(40): view('/frontend/contents/home/index', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 9 APPPATH\Controllers\frontend\Home.php(53): view('frontend/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Home))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 05:15:49 --> Cannot use App\Models\manage\Shop_Order_model as Shop_Order_model because the name is already in use
+in APPPATH\Controllers\manage\ShopOrder.php on line 6.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-03 05:16:36 --> Tập tin không hợp lệ:/manage/contents/shopOrder/add_shopOrder_view.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('/manage/contents/shopOrder/add_shopOrder_view.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/shopOrder/add_shopOrder_view', [], true)
+ 3 APPPATH\Views\manage\layout.php(58): view('/manage/contents/shopOrder/add_shopOrder_view', [...])
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 7 APPPATH\Controllers\manage\ShopOrder.php(53): view('manage/layout', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->add()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 05:57:28 --> Undefined variable $customer
+in APPPATH\Views\manage\contents\shoporder\add_shoporder_view.php on line 22.
+ 1 APPPATH\Views\manage\contents\shoporder\add_shoporder_view.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customer', 'APPPATH\\Views\\manage\\contents\\shoporder\\add_shoporder_view.php', 22)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\contents\\shoporder\\add_shoporder_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/shopOrder/add_shopOrder_view', [], true)
+ 5 APPPATH\Views\manage\layout.php(60): view('/manage/contents/shopOrder/add_shopOrder_view', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 9 APPPATH\Controllers\manage\ShopOrder.php(56): view('manage/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->add()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 05:58:25 --> Undefined variable $customer
+in APPPATH\Views\manage\contents\shoporder\add_shoporder_view.php on line 22.
+ 1 APPPATH\Views\manage\contents\shoporder\add_shoporder_view.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $customer', 'APPPATH\\Views\\manage\\contents\\shoporder\\add_shoporder_view.php', 22)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\contents\\shoporder\\add_shoporder_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/shopOrder/add_shopOrder_view', [], true)
+ 5 APPPATH\Views\manage\layout.php(60): view('/manage/contents/shopOrder/add_shopOrder_view', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 9 APPPATH\Controllers\manage\ShopOrder.php(57): view('manage/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->add()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 10:43:24 --> Undefined variable $val
+in APPPATH\Views\manage\layout.php on line 92.
+ 1 APPPATH\Views\manage\layout.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $val', 'APPPATH\\Views\\manage\\layout.php', 92)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 5 APPPATH\Controllers\manage\ShopOrder.php(62): view('manage/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->add()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-03 10:47:28 --> Unsupported operand types: string + string
+in APPPATH\Views\manage\layout.php on line 91.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 4 APPPATH\Controllers\manage\ShopOrder.php(62): view('manage/layout', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->add()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

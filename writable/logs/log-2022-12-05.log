@@ -1,0 +1,9 @@
+CRITICAL - 2022-12-05 02:09:08 --> syntax error, unexpected token ";"
+in APPPATH\Views\manage\layout.php on line 123.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 3 APPPATH\Controllers\manage\ShopOrder.php(62): view('manage/layout', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->add()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

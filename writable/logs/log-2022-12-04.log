@@ -1,0 +1,11 @@
+CRITICAL - 2022-12-04 20:52:39 --> Undefined variable $ele
+in APPPATH\Views\manage\layout.php on line 99.
+ 1 APPPATH\Views\manage\layout.php(99): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $ele', 'APPPATH\\Views\\manage\\layout.php', 99)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 5 APPPATH\Controllers\manage\Dashboard.php(30): view('manage/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\Dashboard->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\Dashboard))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
