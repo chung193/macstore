@@ -102,13 +102,18 @@ if (!function_exists('calc_age')) {
         try {
             //explode the date to get month, day and year
             $temp = explode("-", $bod);
+            if($temp[10] == '0000'){
+                $mess =  'Chưa nhập';
+                return $mess;
+            }
             //get age from date or birthdate
             $age = (date("md", date("U", mktime(0, 0, 0, $temp[0], $temp[1], $temp[2]))) > date("md")
                 ? ((date("Y") - $temp[2]) - 1)
                 : (date("Y") - $temp[2]));
             return $age;
         } catch (Exception $e) {
-            echo "Message: " . $e->getMessage();
+            // echo "Message: " . $e->getMessage();
+            echo 'Chưa nhập';
         }
     }
 }
@@ -257,6 +262,16 @@ if (!function_exists('showCategoriesEdit')) {
                 // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
                 showCategoriesEdit($id, $categories, $item['id'], $char . '— ');
             }
+        }
+    }
+}
+if (!function_exists('is_birthday')) {
+    function is_birthday($bod){
+        $time = strtotime($bod);
+        if(date('m-d') == date('m-d', $time)) {
+            return 1;
+        }else{
+            return 0;
         }
     }
 }

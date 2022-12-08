@@ -6,6 +6,7 @@ use App\Models\manage\Shop_Order_model;
 use App\Models\manage\Info_model;
 use App\Models\manage\Shop_Customer_model;
 use App\Models\manage\Shop_Product_model;
+use App\Models\manage\Discount_model;
 
 class ShopOrder extends BaseController
 {
@@ -48,8 +49,10 @@ class ShopOrder extends BaseController
         $cus_md = new Shop_Customer_model();
         $pro_md = new Shop_Product_model();
         $model = new Shop_Order_model();
+        $discount_md = new Discount_model();
         $data['customer'] = $cus_md->getcustomer();
         $data['product'] = $pro_md->getshopproduct();
+        $data['discount'] = $discount_md->getdiscount();
         //print_r($data['customer']); die();
         $data['shopOrder'] = $model->getshopOrder();
         $data['data'] = array(
@@ -64,58 +67,41 @@ class ShopOrder extends BaseController
  
     public function save()
     {
-        $rules = [
-            'name'      => ['label' => 'Tên danh mục','rules' =>'required|max_length[600]'],
-            'description'       => ['label' => 'Mô tả','rules' =>'required'],
-            'parent_id'       => ['label' => 'Danh mục cha','rules' =>'required'],
-        ];
-         
-        
+        $now = date("Y-m-d H:i:s");
 
-        if($this->validate($rules)){
-            $model = new Shop_Order_model();
-            if($this->request->getPost('slug') == ""){
-                $slug = create_slug($this->request->getPost('name'));
-            }else{
-                $slug = create_slug($this->request->getPost('slug'));
-            }
-            
-            $count = $model->countWhere($slug);
-            if($count){
-                $slug=$slug.'-'.$count;
-            }
-            // check default shopOrder
-            if($this->request->getPost('is_default')){
-                $model->defaultcat();
-                $default=1;
-            }else{
-                $default=0;
-            }
+        $data = array(
+            'user_id' => $this->request->getPost('user_id'),
+            'created_at' => $now,
+            'updated_at' => $now,
+            'status' => 0,
+            'total' => $this->request->getPost('total'),
+            'discount_id' => $this->request->getPost('discount_id'),
+        );
 
-            $data = array(
-                'name'     => $this->request->getPost('name'),
-                'slug' => $slug,
-                'is_default' => $default,
-                'description' => $this->request->getPost('description'),
-                'parent_id' => $this->request->getPost('parent_id'),
-            );
+        $model = new Shop_Order_model();
+        $model->saveShoporder($data);
+        $id = $model->insertID();
+
+        $var = $this->request->getPost('product_id');
+        $var2 = $this->request->getPost('qty');
+        $array = array();
+        foreach($var as $key => $val){
             
-            $model->saveshopOrder($data);
-            // thêm mới data seo
-            $id_inserted = $model->insertID();
-            $seo = array(
-                'meta_title' => $this->request->getPost('meta_title'),
-                'meta_description' => $this->request->getPost('meta_description'),
-                'content_type' => 'shopOrder',
-                'content_id' => $id_inserted
+            $arr = array(
+                'order_id' => $id,
+                'product_id' =>$val,
+                'qty' =>$var2[$key]
             );
-            $this->setSeoContent($seo);
-            return redirect()->to('/manage/shop-Order');
-        }else{
-            $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
-            return redirect()->to('/manage/shop-Order/add/');
+            $model->saveDetail($arr);
         }
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+            return redirect()->to('/manage/order');
+        // }else{
+        //     $session = session();
+        //     $session->setFlashdata('msg', $this->validator->listErrors());
+        //     return redirect()->to('/manage/order/add/');
+        // }
     }
 
     public function edit($id=false)

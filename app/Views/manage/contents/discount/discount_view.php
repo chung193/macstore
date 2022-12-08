@@ -1,31 +1,13 @@
-<div class="content-wrapper" style="min-height: 1345.6px">
 
-<section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Chương trình khuyến mại</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?= base_url().'/manage/dashboard'?>">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Chương trình khuyến mại</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-</section>
+   <?php
+        $data = array(
+            'title' => $title
+        );
+        echo view('manage/components/breadcrumb', $data)
+        ?>
+   <a href="<?php echo base_url()?>/manage/discount/add/" class="btn btn-1 mb-4">Thêm mới</a>
 
-<section class="content">
-    <div class="row">
-    <div class="col-md-12">
-    <div class="card card-primary card-outline card-outline-tabs">
-    <div class="card-header p-0 border-bottom-0">
-    </div>
-    
-    <div class="card-body">
-    <a href="<?php echo base_url()?>/manage/discount/add/" class="text-success m-2">Thêm mới</a>
-    <table id="example2" class="table table-bordered table-striped dataTable dtr-inline">
+    <table class="display border">
         <thead>
             <tr>
                 <th style="width:20%">Tiêu đề</th>
@@ -56,17 +38,5 @@
             <?php } ?>
         </tbody>
     </table>
-</div>
-</div>
-                </div>
-              </div>
-              <!-- /.card -->
-        </div>
-</div>
-</div>
-    </div>
-    </div>
-</div>
-</section>
-</div>
+
 

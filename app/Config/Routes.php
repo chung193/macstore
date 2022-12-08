@@ -33,6 +33,11 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  */
 $routes->get('auth/logout', 'auth\Login::logout');
+// cron job
+$routes->get('customer-dob', 'frontend\Customer_dob::index');
+$routes->get('get-noti', 'frontend\Notifications::readAll');
+$routes->get('get-noti-status', 'frontend\Notifications::readAllStatus');
+
 // auth
 $routes->group('auth', ['filter' => 'noauth'], function ($routes) {
     $routes->get('login', 'auth\Login::index', ['as' => 'login']);

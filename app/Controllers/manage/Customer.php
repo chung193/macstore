@@ -22,6 +22,7 @@ class Customer extends BaseController
     {
         $model = new Shop_Customer_model();
         $data['customer'] = $model->getcustomer();
+        //print_r($data['customer'] ); die();
         $session = session();
         if($session->get('user_role') == 'editor'){
             $subview = '/manage/contents/customer/customer_view_editor';

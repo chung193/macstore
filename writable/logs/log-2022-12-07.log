@@ -1,0 +1,78 @@
+ERROR - 2022-12-07 00:58:39 --> mysqli_sql_exception: Column 'total' cannot be null in C:\xampp\htdocs\macstore\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\macstore\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `sh...', 0)
+#1 C:\xampp\htdocs\macstore\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `sh...')
+#2 C:\xampp\htdocs\macstore\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `sh...')
+#3 C:\xampp\htdocs\macstore\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `sh...', Array, false)
+#4 C:\xampp\htdocs\macstore\app\Models\manage\Shop_Order_model.php(57): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\macstore\app\Controllers\manage\ShopOrder.php(82): App\Models\manage\Shop_Order_model->saveShoporder(Array)
+#6 C:\xampp\htdocs\macstore\system\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->save()
+#7 C:\xampp\htdocs\macstore\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+#8 C:\xampp\htdocs\macstore\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\macstore\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-07 00:58:39 --> Column 'total' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `shop_order` (`user_id`, `created_at`, `updated_at`, `status`, `total`, `discount_id`) VALUES (\'13\', \'2022-12-07 00:58:39\', \'2022-12-07 00:58:39\', 0, NULL, \'0\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `shop_order` (`user_id`, `created_at`, `updated_at`, `status`, `total`, `discount_id`) VALUES (\'13\', \'2022-12-07 00:58:39\', \'2022-12-07 00:58:39\', 0, NULL, \'0\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `shop_order` (`user_id`, `created_at`, `updated_at`, `status`, `total`, `discount_id`) VALUES (\'13\', \'2022-12-07 00:58:39\', \'2022-12-07 00:58:39\', 0, NULL, \'0\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `shop_order` (`user_id`, `created_at`, `updated_at`, `status`, `total`, `discount_id`) VALUES (:user_id:, :created_at:, :updated_at:, :status:, :total:, :discount_id:)', [...], false)
+ 5 APPPATH\Models\manage\Shop_Order_model.php(57): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\manage\ShopOrder.php(82): App\Models\manage\Shop_Order_model->saveShoporder([...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopOrder->save()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-07 08:06:00 --> Call to undefined function App\Controllers\manage\is_birthday()
+in APPPATH\Controllers\manage\Customer_dob.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\Customer_dob->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\Customer_dob))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-07 08:38:55 --> syntax error, unexpected token "=", expecting ")"
+in APPPATH\Controllers\manage\Customer_dob.php on line 42.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\manage\\Customer_dob.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\manage\\Customer_dob')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\manage\\Customer_dob')
+ 4 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\manage\\Customer_dob', true)
+ 5 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-07 20:53:40 --> Attempt to read property "permission" on null
+in APPPATH\Controllers\manage\BaseController.php on line 105.
+ 1 APPPATH\Controllers\manage\BaseController.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "permission" on null', 'APPPATH\\Controllers\\manage\\BaseController.php', 105)
+ 2 APPPATH\Controllers\manage\BaseController.php(51): App\Controllers\manage\BaseController->permission()
+ 3 SYSTEMPATH\CodeIgniter.php(890): App\Controllers\manage\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 4 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-07 20:53:40 --> Attempt to read property "permission" on null
+in APPPATH\Controllers\manage\BaseController.php on line 105.
+ 1 APPPATH\Controllers\manage\BaseController.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "permission" on null', 'APPPATH\\Controllers\\manage\\BaseController.php', 105)
+ 2 APPPATH\Controllers\manage\BaseController.php(51): App\Controllers\manage\BaseController->permission()
+ 3 SYSTEMPATH\CodeIgniter.php(890): App\Controllers\manage\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 4 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-07 20:54:37 --> Attempt to read property "permission" on null
+in APPPATH\Controllers\manage\BaseController.php on line 105.
+ 1 APPPATH\Controllers\manage\BaseController.php(105): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "permission" on null', 'APPPATH\\Controllers\\manage\\BaseController.php', 105)
+ 2 APPPATH\Controllers\manage\BaseController.php(51): App\Controllers\manage\BaseController->permission()
+ 3 SYSTEMPATH\CodeIgniter.php(890): App\Controllers\manage\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+ 4 SYSTEMPATH\CodeIgniter.php(473): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-07 20:55:53 --> Call to undefined function App\Controllers\frontend\getServerTimestamp()
+in APPPATH\Controllers\frontend\Customer_dob.php on line 38.
+ 1 APPPATH\Controllers\frontend\Customer_dob.php(79): App\Controllers\frontend\Customer_dob->sendemail('chung.vu.cnt.193@gmail.com', 'chung vũ đình')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer_dob->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer_dob))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-07 20:55:56 --> Call to undefined function App\Controllers\frontend\getServerTimestamp()
+in APPPATH\Controllers\frontend\Customer_dob.php on line 38.
+ 1 APPPATH\Controllers\frontend\Customer_dob.php(79): App\Controllers\frontend\Customer_dob->sendemail('chung.vu.cnt.193@gmail.com', 'chung vũ đình')
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer_dob->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer_dob))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

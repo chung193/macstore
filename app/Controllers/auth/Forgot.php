@@ -76,7 +76,7 @@ class Forgot extends Controller
                     print_r($data);
                 }
             } catch (Exception $e) {
-                $error = $mail->ErrorInfo;
+                $error = $email->ErrorInfo;
                 $session = session();
                 $session->setFlashdata('msg', $error);
             }

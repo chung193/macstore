@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-iconpicker/1.10.0/css/bootstrap-iconpicker.min.css" integrity="sha512-0SX0Pen2FCs00cKFFb4q3GLyh3RNiuuLjKJJD56/Lr1WcsEV8sOtMSUftHsR6yC9xHRV7aS0l8ds7GVg6Xod0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
@@ -75,63 +76,197 @@
     <script src="<?= base_url() . '/public/backend/js/validate.js' ?>"></script>
     <script src="<?= base_url() . '/public/backend/js/jquery-menu-editor.min.js' ?>"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
     <script>
         $(document).ready(function() {
+
+            setInterval(function () {
+                fetchNoti();
+            }, 6000);
+
+            setInterval(function () {
+                fetchNotiStatus();
+            }, 10000);
+
+
+            // $( "#createSub" ).click(function() {
+            //     createmenu();
+            // });
+
+            // function createmenu(){
+            //     console.log('menu');
+            //     var strurl="<?php echo base_url();?>"+'/get-noti-status';
+            //     jQuery.ajax({
+            //     url: strurl,
+            //     type: 'GET',
+            //     success: function(data) {
+            //         var str = JSON.parse(data);
+            //         //console.log(str);
+            //         if(str.length > 0){
+            //             // $('#noti').text(str.length);
+            //             var element = "<ul class='dropdown-menu' id='listnoti'>";
+            //             for(var i = 0;i< str.length; i++){
+            //                 //console.log(str[i].name);
+            //                 element += '<li><a class="dropdown-item" href="#">'+str[i].content+'</a></li>';
+            //             }
+            //             element += '</ul>';
+            //             var div = $(element);
+            //             $("#listnoti").remove();
+            //             $("#noti-menu").append(div);
+            //         }else{
+            //             //$('#noti').text(0);
+            //             var element = "<ul class='dropdown-menu'><li><a class='dropdown-item' href='#'>Bạn đã xem hết các thông báo</a></li></ul>";
+            //             var div = $(element);
+            //             $("#listnoti").remove();
+            //             $("#noti-menu").append(div);
+            //         }             
+            //     }
+            //     });
+            // }
+
+            function fetchNotiStatus(){
+                var strurl="<?php echo base_url();?>"+'/get-noti-status';
+                jQuery.ajax({
+                url: strurl,
+                type: 'GET',
+                success: function(data) {
+                    var str = JSON.parse(data);
+                    //console.log(str);
+                    if(str.length > 0){
+                        $('#noti').text(str.length);
+                        var element = "<ul class='dropdown-menu' id='listnoti'>";
+                        for(var i = 0;i< str.length; i++){
+                            //console.log(str[i].name);
+                            element += '<li><a class="dropdown-item" href="#">'+str[i].content+'</a></li>';
+                        }
+                        element += '</ul>';
+                        var div = $(element);
+                        $("#listnoti").remove();
+                        $("#noti-menu").append(div);
+                    }else{
+                        $('#noti').text(0);
+                        var element = "<ul class='dropdown-menu'><li><a class='dropdown-item' href='#'>Bạn đã xem hết các thông báo</a></li></ul>";
+                        var div = $(element);
+                        $("#listnoti").remove();
+                        $("#noti-menu").append(div);
+                    }             
+                }
+                });
+            }
+
+            function fetchNoti(){
+                var strurl="<?php echo base_url();?>"+'/get-noti';
+                jQuery.ajax({
+                url: strurl,
+                type: 'GET',
+                success: function(data) {
+                    var str = JSON.parse(data);
+                    //console.log(str);
+                    if(str.length > 0){
+                        for(var i = 0;i< str.length; i++){
+                            //console.log(str[i].name);
+                            $.toast({
+                                heading: str[i].name,
+                                text: str[i].content,
+                                showHideTransition: 'slide',
+                                icon: 'info'
+                            })
+                        }
+                    }else{
+                        
+                    }             
+                }
+                });
+            }
+            
+         
+
+            $('#reservation').daterangepicker();
+            $('#reservation').daterangepicker({
+                opens: 'left'
+            }, function(start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
 
             $('.js-example-basic-multiple').select2({
                 width: 'resolve'
             });
 
             $('.select-product').select2({
-                    width: 'resolve'
-                });
-
-                <?php
-                if (isset($product)) {
-                    ?>
-                $("#addPro").click(function() {
-                <?php 
-                    $ele  = "<div class='row rounded border p-3 p-0 m-0 mb-4'><div class='mb-3'><label for='title' class='form-label'>Sản phẩm</label><select class='select-product' name='product_id[]' style='width: 100%'>";
-                    foreach ($product as $val) {
-
-                        $ele = $ele . '<option data-price='.price_format($val['price']).' value=' . $val['id'] . '>' . $val['name'] . '</option>';
-                    }
-                    $ele = $ele . "</select></div><div class='mb-3 col-12 col-md-4'><label for='title' class='form-label'>Số lượng</label><input type='number' name='qty[]' class='qty form-control' value='1' name='qty' placeholder='qty'></div><div class='col-12 col-md-4'><p>Đơn giá:</p> <span class='price'></span></div><div class='col-12 col-md-4'><p>Tổng:</p> <span class='total'></span></div><div class='row'><div class='col-4 col-md-4'><button type='button' class='btn btn-1 trash'><i class='far fa-trash-alt'></i> Xóa</button></div></div></div>";
-                ?>
-                var element = $("<?= $ele ?>");
-                $("#order").append(element);
-                $('.select-product').select2({
-                    width: 'resolve'
-                });
-
-                $('.select-product').on('change', function() {
-                  var price = $(this).find(':selected').attr("data-price");
-                  $(this).parent().parent().find('.price').text(price + ' ₫');
-                })
-
-                const formatter = new Intl.NumberFormat('vi-VN', {
-                  style: 'currency',
-                  currency: 'VND',
-                });
-
-                $('.qty').on('input',function(e){
-                    console.log($(this).val());
-                    var old = $(this).parent().parent().find('.price').text();
-                    old = old.replaceAll(",","");
-                    old = old.replace("đ","");
-                    old = parseInt(old);
-                    $(this).parent().parent().find('.total').text(formatter.format(parseInt($(this).val())*old));
-                });
-
-                $(".trash").click(function() {
-                    $(this).parent().parent().parent().remove();
-                });
-
+                width: 'resolve'
             });
 
+            const formatter = new Intl.NumberFormat('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND',
+                    });
+
+            <?php
+            if (isset($product)) {
+            ?>
+                $("#addPro").click(function() {
+                    <?php
+                    $ele  = "<div class='row rounded border p-3 p-0 m-0 mb-4'><div class='mb-3'><label for='title' class='form-label'>Sản phẩm</label><select class='select-product' name='product_id[]' style='width: 100%'><option data-price='0' value='0'>Chọn 1 sản phẩm</option>";
+                    foreach ($product as $val) {
+
+                        $ele = $ele . '<option data-price=' . price_format($val['price']) . ' value=' . $val['id'] . '>' . $val['name'] . '</option>';
+                    }
+                    $ele = $ele . "</select></div><div class='mb-3 col-12 col-md-4'><label for='title' class='form-label'>Số lượng</label><input type='number' name='qty[]' class='qty form-control' value='0' name='qty' placeholder='qty'></div><div class='col-12 col-md-4'><p>Đơn giá:</p> <span class='price'>0</span></div><div class='col-12 col-md-4'><p>Tổng:</p> <span class='total'>0</span></div><div class='row'><div class='col-4 col-md-4'><button type='button' class='btn btn-1 trash'><i class='far fa-trash-alt'></i> Xóa</button></div></div></div>";
+                    ?>
+                    var element = $("<?= $ele ?>");
+                    $("#order").append(element);
+                    $('.select-product').select2({
+                        width: 'resolve'
+                    });
+
+                    function run() {
+                        var $x = $(".total");
+                        console.log($x.length);
+                        var sum = 0;
+                        for(var i = 0; i < $x.length; i++){
+                            var price = $x[i].innerText;
+                            console.log(price);
+                            price = price.replaceAll(".", "");
+                            price = price.replace("đ", "");
+                            price = parseInt(price);
+                            sum += price; 
+                        }
+                            $("#totalAll").text(formatter.format(sum));
+                            $('#form_total').val(sum);
+                    }
+
+                    // $('.select-product').find(':selected');
+
+                    $('.select-product').on('change', function() {
+                        var price = $(this).find(':selected').attr("data-price");
+                        $(this).parent().parent().find('.price').text(price + ' ₫');
+                        run();
+                    })
+
+                    
+
+                    $('.qty').on('input', function(e) {
+                        var old = $(this).parent().parent().find('.price').text();
+                        old = old.replaceAll(",", "");
+                        old = old.replace("đ", "");
+                        old = parseInt(old);
+                        $(this).parent().parent().find('.total').text(formatter.format(parseInt($(this).val()) * old));
+                        run();
+                    });
+
+
+
+
+                    $(".trash").click(function() {
+                        $(this).parent().parent().parent().remove();
+                    });
+
+                });
+
             <?php } ?>
-            
+
 
             $(function() {
                 $('[data-toggle="tooltip"]').tooltip()

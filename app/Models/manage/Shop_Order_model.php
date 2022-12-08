@@ -58,6 +58,12 @@ class Shop_Order_model extends Model
         return $query;
     }
 
+    public function saveDetail($data)
+    {
+        $query = $this->db->table('shop_order_detail')->insert($data);
+        return $query;
+    }
+
     public function updateShoporder($data, $id)
     {
         $query = $this->db->table($this->table)->update($data, array('id' => $id));

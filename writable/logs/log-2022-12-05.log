@@ -7,3 +7,18 @@ in APPPATH\Views\manage\layout.php on line 123.
  5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopOrder))
  6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-05 22:03:26 --> Undefined array key "dob"
+in APPPATH\Views\manage\contents\customer\customer_view.php on line 30.
+ 1 APPPATH\Views\manage\contents\customer\customer_view.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "dob"', 'APPPATH\\Views\\manage\\contents\\customer\\customer_view.php', 30)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\contents\\customer\\customer_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/customer/customer_view', [], true)
+ 5 APPPATH\Views\manage\layout.php(59): view('/manage/contents/customer/customer_view', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 9 APPPATH\Controllers\manage\Customer.php(39): view('manage/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\Customer->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\Customer))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

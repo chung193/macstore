@@ -1,8 +1,4 @@
-<?php 
-if(isset($_POST)){
-    print_r($_POST); 
-}
-?>
+
 <div class="row">
     <div class="col-12 col-md-6">
         <?php
@@ -20,8 +16,8 @@ if(isset($_POST)){
             <div class="alert alert-danger"><?= session()->getFlashdata('msgErr') ?></div>
         <?php endif; ?>
 
-        <!-- <form action="<?php echo base_url() ?>/manage/shop-producer/save" method="post" enctype='multipart/form-data'> -->
-        <form action="" method="post" enctype='multipart/form-data'>
+        <form action="<?php echo base_url() ?>/manage/order/save" method="post" enctype='multipart/form-data'> 
+        <!-- <form action="" method="post" enctype='multipart/form-data'> -->
             <div class="mb-3">
                 <select class="js-example-basic-multiple" name="user_id" style="width: 75%">
                     <?php
@@ -33,6 +29,36 @@ if(isset($_POST)){
                     ?>
                 </select>
             </div>
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                        <select class="js-example-basic-multiple" name="discount_id" style="width: 75%">
+                            <?php
+                            foreach ($discount as $val) {
+                            ?>
+                                <option value="<?= $val['id'] ?>"  data-desc="<?= $val['description'] ?>" data-ratio="<?= $val['ratio'] ?>" data-money="<?= $val['money'] ?>c"><?= $val['title'] ?></option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <span id="discount"></span>
+                </div>
+            </div>
+
+            <input type="hidden" name="total" id="form_total">
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <p><strong>Tổng tiền</strong></p>
+                    <span id="totalAll">0</span>
+                </div>
+            </div>
+
+            <hr>
             <div class="mb-3">
                 <button type="button" class="btn btn-1" id="addPro"> Thêm </button>
             </div>

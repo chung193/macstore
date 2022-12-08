@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/ci4shop2';
+    public $baseURL = 'http://localhost/macstore';
 
     /**
      * --------------------------------------------------------------------------

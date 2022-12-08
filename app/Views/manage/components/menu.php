@@ -65,6 +65,10 @@
                             <hr class="dropdown-divider m-0">
                         </li>
                         <li><a class="dropdown-item" href="<?= base_url() . '/manage/order' ?>">Đơn hàng</a></li>
+                        <li>
+                            <hr class="dropdown-divider m-0">
+                        </li>
+                        <li><a class="dropdown-item" href="<?= base_url() . '/manage/discount' ?>">Khuyến mại</a></li>
                     </ul>
                 </li>
 
@@ -129,6 +133,13 @@
                         <li><a class="dropdown-item" href="<?= base_url() . '/manage/info' ?>">Thông tin</a></li>
                     </ul>
                 </li>
+
+                <li class="nav-item pr-3" id="noti-menu">
+                    <a class="nav-link dropdown-toggle" href="javascript:void(0)"  role="button" data-bs-toggle="dropdown" aria-expanded="false">Thông báo 
+                        <!-- <span id="noti" class="badge rounded-pill bg-danger"></span> -->
+                    </a>
+                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <?= $name ?>
