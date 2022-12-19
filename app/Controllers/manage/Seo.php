@@ -8,6 +8,8 @@ use App\Models\manage\Info_model;
 use App\Models\manage\Page_model;
 use App\Models\manage\Post_model;
 use App\Models\manage\Category_model;
+use App\Models\manage\Shop_Category_model;
+use App\Models\manage\Shop_Product_model;
 
 class Seo extends BaseController
 {
@@ -41,9 +43,10 @@ class Seo extends BaseController
     public function edit($id)
     {
         $model = new seo_model();
-        $data['seo'] = $model->getseo($id)->getRow();
+        $data['seo'] = $model->getById($id);
         $seo = $data['seo'];
 
+        //print_r($seo);die();
         if ($seo->content_type == 'category') {
             $cat_md = new Category_model();
             $tem = $cat_md->getCategory($seo->content_id);
@@ -57,6 +60,16 @@ class Seo extends BaseController
         if ($seo->content_type == 'page') {
             $page_md = new Page_model();
             $tem = $page_md->getPage($seo->content_id);
+        }
+
+        if ($seo->content_type == 'shopcategory') {
+            $shopcategory_md = new Shop_Category_model();
+            $tem = $shopcategory_md->getshopcategory($seo->content_id);
+        }
+
+        if ($seo->content_type == 'product') {
+            $product_md = new Shop_Product_model();
+            $tem = $product_md->getshopproduct($seo->content_id);
         }
 
         // echo ($seo->content_type); die();

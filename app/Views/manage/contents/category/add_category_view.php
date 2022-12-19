@@ -20,7 +20,7 @@ echo view('manage/components/breadcrumb', $data)
             <div class="mb-3 row">
                 <label for="title" class="form-label">Danh mục cha</label>
                 <div class="col-md-4 col-10">
-                <select name="parent_id" class="form-control select2 select2-hidden-accessible ">
+                <select name="parent_id" class="form-control ">
                     <option value="0">Không có danh mục cha</option>
                     <?php showCategories($category); ?>
                 </select>

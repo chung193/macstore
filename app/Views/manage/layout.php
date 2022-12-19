@@ -82,106 +82,72 @@
     <script>
         $(document).ready(function() {
 
-            setInterval(function () {
+            setInterval(function() {
                 fetchNoti();
             }, 6000);
 
-            setInterval(function () {
+            setInterval(function() {
                 fetchNotiStatus();
             }, 10000);
 
 
-            // $( "#createSub" ).click(function() {
-            //     createmenu();
-            // });
 
-            // function createmenu(){
-            //     console.log('menu');
-            //     var strurl="<?php echo base_url();?>"+'/get-noti-status';
-            //     jQuery.ajax({
-            //     url: strurl,
-            //     type: 'GET',
-            //     success: function(data) {
-            //         var str = JSON.parse(data);
-            //         //console.log(str);
-            //         if(str.length > 0){
-            //             // $('#noti').text(str.length);
-            //             var element = "<ul class='dropdown-menu' id='listnoti'>";
-            //             for(var i = 0;i< str.length; i++){
-            //                 //console.log(str[i].name);
-            //                 element += '<li><a class="dropdown-item" href="#">'+str[i].content+'</a></li>';
-            //             }
-            //             element += '</ul>';
-            //             var div = $(element);
-            //             $("#listnoti").remove();
-            //             $("#noti-menu").append(div);
-            //         }else{
-            //             //$('#noti').text(0);
-            //             var element = "<ul class='dropdown-menu'><li><a class='dropdown-item' href='#'>Bạn đã xem hết các thông báo</a></li></ul>";
-            //             var div = $(element);
-            //             $("#listnoti").remove();
-            //             $("#noti-menu").append(div);
-            //         }             
-            //     }
-            //     });
-            // }
-
-            function fetchNotiStatus(){
-                var strurl="<?php echo base_url();?>"+'/get-noti-status';
+            function fetchNotiStatus() {
+                var strurl = "<?php echo base_url(); ?>" + '/get-noti-status';
                 jQuery.ajax({
-                url: strurl,
-                type: 'GET',
-                success: function(data) {
-                    var str = JSON.parse(data);
-                    //console.log(str);
-                    if(str.length > 0){
-                        $('#noti').text(str.length);
-                        var element = "<ul class='dropdown-menu' id='listnoti'>";
-                        for(var i = 0;i< str.length; i++){
-                            //console.log(str[i].name);
-                            element += '<li><a class="dropdown-item" href="#">'+str[i].content+'</a></li>';
+                    url: strurl,
+                    type: 'GET',
+                    success: function(data) {
+                        var str = JSON.parse(data);
+                        //console.log(str);
+                        if (str.length > 0) {
+                            $('#noti').text(str.length);
+                            var element = "<ul class='dropdown-menu' id='listnoti'>";
+                            for (var i = 0; i < str.length; i++) {
+                                //console.log(str[i].name);
+                                element += '<li><a class="dropdown-item" href="#">' + str[i].content + '</a></li>';
+                            }
+                            element += '</ul>';
+                            var div = $(element);
+                            $("#listnoti").remove();
+                            $("#noti-menu").append(div);
+                        } else {
+                            $('#noti').text(0);
+                            var element = "<ul class='dropdown-menu'><li><a class='dropdown-item' href='#'>Bạn đã xem hết các thông báo</a></li></ul>";
+                            var div = $(element);
+                            $("#listnoti").remove();
+                            $("#noti-menu").append(div);
                         }
-                        element += '</ul>';
-                        var div = $(element);
-                        $("#listnoti").remove();
-                        $("#noti-menu").append(div);
-                    }else{
-                        $('#noti').text(0);
-                        var element = "<ul class='dropdown-menu'><li><a class='dropdown-item' href='#'>Bạn đã xem hết các thông báo</a></li></ul>";
-                        var div = $(element);
-                        $("#listnoti").remove();
-                        $("#noti-menu").append(div);
-                    }             
-                }
+                    }
                 });
             }
 
-            function fetchNoti(){
-                var strurl="<?php echo base_url();?>"+'/get-noti';
+            function fetchNoti() {
+                var strurl = "<?php echo base_url(); ?>" + '/get-noti';
                 jQuery.ajax({
-                url: strurl,
-                type: 'GET',
-                success: function(data) {
-                    var str = JSON.parse(data);
-                    //console.log(str);
-                    if(str.length > 0){
-                        for(var i = 0;i< str.length; i++){
-                            //console.log(str[i].name);
-                            $.toast({
-                                heading: str[i].name,
-                                text: str[i].content,
-                                showHideTransition: 'slide',
-                                icon: 'info'
-                            })
+                    url: strurl,
+                    type: 'GET',
+                    success: function(data) {
+                        var str = JSON.parse(data);
+                        //console.log(str);
+                        if (str.length > 0) {
+                            for (var i = 0; i < str.length; i++) {
+                                //console.log(str[i].name);
+                                $.toast({
+                                    heading: str[i].name,
+                                    text: str[i].content,
+                                    showHideTransition: 'slide',
+                                    icon: 'info'
+                                })
+                            }
+                        } else {
+
                         }
-                    }else{
-                        
-                    }             
-                }
+                    }
                 });
             }
-            
-         
+
+
 
             $('#reservation').daterangepicker();
             $('#reservation').daterangepicker({
@@ -198,10 +164,14 @@
                 width: 'resolve'
             });
 
+            // $('.select2').select2({
+            //     width: 'resolve'
+            // });
+
             const formatter = new Intl.NumberFormat('vi-VN', {
-                        style: 'currency',
-                        currency: 'VND',
-                    });
+                style: 'currency',
+                currency: 'VND',
+            });
 
             <?php
             if (isset($product)) {
@@ -225,16 +195,16 @@
                         var $x = $(".total");
                         console.log($x.length);
                         var sum = 0;
-                        for(var i = 0; i < $x.length; i++){
+                        for (var i = 0; i < $x.length; i++) {
                             var price = $x[i].innerText;
                             console.log(price);
                             price = price.replaceAll(".", "");
                             price = price.replace("đ", "");
                             price = parseInt(price);
-                            sum += price; 
+                            sum += price;
                         }
-                            $("#totalAll").text(formatter.format(sum));
-                            $('#form_total').val(sum);
+                        $("#totalAll").text(formatter.format(sum));
+                        $('#form_total').val(sum);
                     }
 
                     // $('.select-product').find(':selected');
@@ -245,7 +215,7 @@
                         run();
                     })
 
-                    
+
 
                     $('.qty').on('input', function(e) {
                         var old = $(this).parent().parent().find('.price').text();
@@ -344,6 +314,19 @@
                             }
                         }
                     });
+
+                    $('#filterTable').on('click', filteredData());
+
+                    function filteredData() {
+                        console.log('===');
+                        table
+                            .column(3)
+                            .data()
+                            .filter(function(value, index) {
+                                return value == 0 ? true : false;
+                            });
+                    }
+
                 <?php } ?>
 
                 <?php if ($data['type'] == 'form') { ?>

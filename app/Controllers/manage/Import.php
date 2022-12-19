@@ -19,6 +19,29 @@ class Import extends BaseController
         );
     }
 
+    public function index($name){
+        // echo $name; die();
+        $session = session();
+        $subview = '';
+        if($name == 'producer'){
+            $subview = '/manage/contents/importfile/producer';
+        }elseif($name == 'catalog'){
+            $subview = '/manage/contents/importfile/catalog';
+        }else{
+            $subview = '/manage/contents/importfile/product';
+        }
+        
+        $data['data'] = array(
+            'site' => $this->site,
+            'subview'   => $subview,
+            'title'     => "Nhập dữ liệu từ file excel",
+            'type' => 'form',
+            'name'      => $session->get('user_name')
+        );
+        
+        echo view('manage/layout',$data);
+    }
+
 
     public function importFile(){
         // Validation
@@ -56,7 +79,7 @@ class Import extends BaseController
                             $numberOfFields = 5; // Total number of fields
                             // Key names are the insert table field names - name, img, url
                             if($i > 0 ){ 
-                                $importData_arr[$i]['name'] = $filedata[1];
+                                $importData_arr[$i]['title'] = $filedata[1];
                                 $importData_arr[$i]['description'] = $filedata[2];
                                 $importData_arr[$i]['parent_id'] = $filedata[3];
                                 $importData_arr[$i]['slug'] = create_slug($filedata[1]); 
@@ -105,14 +128,14 @@ class Import extends BaseController
                         $category_md = new Shop_Category_model();
                         foreach($importData_arr as $data){
                             // Check record
-                            $checkrecord = $category_md->where('name',$data['name'])->countAllResults();
+                            $checkrecord = $category_md->where('title',$data['title'])->countAllResults();
                             if($checkrecord == 0){
                                 ## Insert Record
                                 if($category_md->saveShopCategory($data)){
                                     $count++;
                                     $id_inserted = $category_md->insertID();
                                     $seo = array(
-                                        'meta_title' => $data['name'],
+                                        'meta_title' => $data['title'],
                                         'meta_description' => $data['description'],
                                         'content_type' => 'shopcategory',
                                         'content_id' => $id_inserted
@@ -161,6 +184,8 @@ class Import extends BaseController
                 echo '<script>alert("Không thể import file này")</script>';
             }
         }
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
         return redirect()->back();
     }
 

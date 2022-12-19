@@ -9,9 +9,10 @@ echo view('manage/components/breadcrumb', $data)
     <div class="col-12 col-md-8">
         <?php
             $url = base_url().'/manage/'.$seo->content_type.'/edit/'.$seo->content_id; 
-            $name = $content->title;
+            // print_r($content); die();
+            $name = (isset($content->title)) ?$content->title: $content->name;
         ?>
-        <p>Nội dung seo cho <a href="<?= $url?>"><?= $name?></a>, bạn cũng có thể sửa nội dung seo tại đó.</p>
+        <p>Nội dung seo cho <a href="<?= $url?>"><?= $name?></a>, bạn cũng có thể sửa nội dung seo tại link <a href="<?= $url?>">này</a>.</p>
         <form action="<?php echo base_url() ?>/manage/seo/update" method="post" id="editSeo" enctype='multipart/form-data'>
 
             <?php if (isset($validation)) : ?>

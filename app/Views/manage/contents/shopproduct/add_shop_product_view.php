@@ -28,7 +28,7 @@ echo view('manage/components/breadcrumb', $data)
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Danh mục</label>
-                        <select class="form-control select2 select2-hidden-accessible" name="category_id" aria-label="Default select example">
+                        <select class="form-control" name="category_id" aria-label="Default select example">
                             <?php
                             showCategories($shop_category);
                             ?>
@@ -39,7 +39,7 @@ echo view('manage/components/breadcrumb', $data)
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Nhà cung cấp</label>
-                        <select class="form-control select2 select2-hidden-accessible" name="producer_id" aria-label="Default select example">
+                        <select class="form-control" name="producer_id" aria-label="Default select example">
                             <?php
                             foreach ($shop_producer as $item) {
                                 echo '<option value="' . $item['id'] . '">';
@@ -58,7 +58,7 @@ echo view('manage/components/breadcrumb', $data)
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Hiển thị giá</label>
-                        <select class="form-control select2 select2-hidden-accessible" name="show_price" aria-label="Default select example">
+                        <select class="form-control" name="show_price" aria-label="Default select example">
                             <?php
                             echo '<option value="1" >Hiển thị giá</option>
                                 <option value="0" >Hiển thị giá liên hệ</option>';
@@ -70,7 +70,7 @@ echo view('manage/components/breadcrumb', $data)
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Áp dụng chương trình khuyến mại</label>
-                        <select class="form-control select2 select2-hidden-accessible" name="id_discount" aria-label="Default select example">
+                        <select class="form-control" name="id_discount" aria-label="Default select example">
                             <?php
                             foreach ($discount as $item) {
                                 echo '<option value="' . $item['id'] . '">';

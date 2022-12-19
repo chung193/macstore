@@ -31,7 +31,7 @@ echo view('manage/components/breadcrumb', $data)
                 <div class="col-12 col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Danh mục cha</label>
-                        <select class="form-control select2 select2-hidden-accessible" name="parentid" aria-label="Default select example">
+                        <select class="form-control" name="parentid" aria-label="Default select example">
                             <option selected>Chọn một danh mục</option>
                             <?php
                             foreach ($category as $item) {

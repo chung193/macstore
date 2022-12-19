@@ -142,9 +142,14 @@ class User_group extends BaseController
     public function delete($id)
     {
         $model = new User_group_model();
-        $model->deleteUserGroup($id);
         $session = session();
-        $session->setFlashdata('msg', "Lưu thay đổi");
-        return redirect()->to('/manage/user-group');
+        if($id == 1 || $id == 2){
+            $session->setFlashdata('msg', "Không thể xóa nhóm này vì đây là mặc định");
+            return redirect()->to('/manage/user-group');
+        }else{
+            $model->deleteUserGroup($id);
+            $session->setFlashdata('msg', "Lưu thay đổi");
+            return redirect()->to('/manage/user-group');
+        }
     }
 }

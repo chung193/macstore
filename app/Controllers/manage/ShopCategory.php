@@ -57,7 +57,7 @@ class ShopCategory extends BaseController
     public function save()
     {
         $rules = [
-            'name'      => ['label' => 'Tên danh mục','rules' =>'required|max_length[600]'],
+            'title'      => ['label' => 'Tên danh mục','rules' =>'required|max_length[600]'],
             'description'       => ['label' => 'Mô tả','rules' =>'required'],
             'parent_id'       => ['label' => 'Danh mục cha','rules' =>'required'],
         ];
@@ -67,7 +67,7 @@ class ShopCategory extends BaseController
         if($this->validate($rules)){
             $model = new Shop_Category_model();
             if($this->request->getPost('slug') == ""){
-                $slug = create_slug($this->request->getPost('name'));
+                $slug = create_slug($this->request->getPost('title'));
             }else{
                 $slug = create_slug($this->request->getPost('slug'));
             }
@@ -85,7 +85,7 @@ class ShopCategory extends BaseController
             }
 
             $data = array(
-                'name'     => $this->request->getPost('name'),
+                'title'     => $this->request->getPost('title'),
                 'slug' => $slug,
                 'is_default' => $default,
                 'description' => $this->request->getPost('description'),
@@ -102,10 +102,12 @@ class ShopCategory extends BaseController
                 'content_id' => $id_inserted
             );
             $this->setSeoContent($seo);
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/shop-category');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/shop-category/add/');
         }
     }
@@ -133,7 +135,7 @@ class ShopCategory extends BaseController
     {
         
         $rules = [
-            'name'      => ['label' => 'Tên danh mục','rules' =>'required|max_length[600]'],
+            'title'      => ['label' => 'Tên danh mục','rules' =>'required|max_length[600]'],
             'description'       => ['label' => 'Mô tả','rules' =>'required'],
             'parent_id'       => ['label' => 'Danh mục cha','rules' =>'required'],
         ];
@@ -152,7 +154,7 @@ class ShopCategory extends BaseController
             }
 
             if($this->request->getPost('slug') == ""){
-                $slug = create_slug($this->request->getPost('name'));
+                $slug = create_slug($this->request->getPost('title'));
             }else{
                 $slug = create_slug($this->request->getPost('slug'));
             }
@@ -163,7 +165,7 @@ class ShopCategory extends BaseController
             }
 
             $data = array(
-                'name'  => $this->request->getPost('name'),
+                'title'  => $this->request->getPost('title'),
                 'slug' => $slug,
                 'description' => $this->request->getPost('description'),
                 'is_default' => $default,
@@ -180,12 +182,13 @@ class ShopCategory extends BaseController
                  'content_id' => $id
              );
              // print_r($seo);die();
-             $this->updateSeoContent($seo, $seo_item->id);
-
+            $this->updateSeoContent($seo, $seo_item->id);
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/shop-category');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/shop-category/edit/'.$id);
         }
     }
@@ -195,6 +198,8 @@ class ShopCategory extends BaseController
         $model = new Shop_Category_model();
         // echo $id;
         // die();
+        $session = session();
+        $session->setFlashdata('msg', 'Thay đổi thành công');
         $model->deleteshopcategory($id);
         return redirect()->to('/manage/shop-category');
     }

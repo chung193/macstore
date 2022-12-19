@@ -21,9 +21,9 @@ echo view('manage/components/breadcrumb', $data)
       <td><?= $order->created_at ?></td>
       <td><?php
           if ($order->status) {
-            echo '<i class="fas fa-check"></i>';
+            echo '<i class="fas fa-check text-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Đơn hàng đã được xử lý"></i>';
           } else {
-            echo '<i class="fas fa-times"></i>';
+            echo '<i class="fas fa-times text-warning" data-bs-toggle="tooltip" data-bs-placement="right" title="Đơn hàng chưa hoàn thành"></i>';
           }
 
           ?></td>
@@ -31,7 +31,9 @@ echo view('manage/components/breadcrumb', $data)
     </tr>
   </tbody>
 </table>
-
+<?php if(!$order->status){?>
+<button type="button" class="btn-1 btn mb-3" onclick="location.href='<?= base_url()?>/manage/order/update-status/<?= $order->id ?>';" >Đánh dấu đơn hàng đã được xử lý</button>
+<?php } ?>
 <div class="row mb-2 mt-2">
   <div class="col-sm-6">
     <h3>Chi tiết cho đơn hàng này </h3>

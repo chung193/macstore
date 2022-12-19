@@ -6,7 +6,7 @@ echo view('manage/components/breadcrumb', $data)
 ?>
 
 <a href="<?php echo base_url() ?>/manage/order/add/" class="btn btn-1">Lên đơn mới</a>
-
+<a href="<?php echo base_url() ?>/manage/order?status=0" class="btn btn-1">Chỉ đơn chưa xử lý</a>
 <div class="mt-3">
   <table class="display border ">
     <thead>
@@ -29,9 +29,9 @@ echo view('manage/components/breadcrumb', $data)
           <td><?= $val['created_at'] ?></td>
           <td><?php
               if ($val['status']) {
-                echo '<i class="fas fa-check"></i>';
+                echo '<i class="fas fa-check text-success" data-bs-toggle="tooltip" data-bs-placement="right" title="Đơn hàng đã được xử lý"></i>';
               } else {
-                echo '<i class="fas fa-times"></i>';
+                echo '<i class="fas fa-times text-warning" data-bs-toggle="tooltip" data-bs-placement="right" title="Đơn hàng chưa hoàn thành"></i>';
               }
 
               ?></td>

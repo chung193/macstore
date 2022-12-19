@@ -59,7 +59,7 @@ class ShopProducer extends BaseController
             'name'      => ['label' =>'Tên','rules' =>'required|max_length[600]'],
             'url'  => ['label' =>'URL', 'rules' =>'min_length[3]|max_length[2000]'],
             'img' => [
-                'label' => 'Image File',
+                'label' => 'file ảnh',
                 'rules' => 'is_image[img]'
                     . '|mime_in[img,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
                     . '|max_size[img,102400]'
@@ -89,11 +89,12 @@ class ShopProducer extends BaseController
 
             $model->saveproducer($data);
 
-            
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/shop-producer');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/shop-producer/add/');
         }
     }
@@ -154,10 +155,12 @@ class ShopProducer extends BaseController
             );
             
             $model->updateproducer($data, $id);
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/shop-producer');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/shop-producer/edit/'.$id);
         }
     }
@@ -166,6 +169,8 @@ class ShopProducer extends BaseController
     {
         $model = new Shop_Producer_model();
         $model->deleteproducer($id);
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
         return redirect()->to('/manage/shop-producer');
     }
 

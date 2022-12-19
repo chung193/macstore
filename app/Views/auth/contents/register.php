@@ -6,21 +6,21 @@
     <?php endif; ?>
 
     <div class="form-group mb-3">
-      <label for="exampleInputEmail1">Họ và tên</label>
+      <label >Họ và tên</label>
       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nicename" placeholder="Nhập tên" value="<?= set_value('nicename') ?>">
     </div>
 
     <div class="form-group mb-3">
-      <label for="exampleInputEmail1">Email</label>
+      <label >Email</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Nhập email" value="<?= set_value('email') ?>">
     </div>
     <div class="form-group mb-3">
-      <label for="exampleInputPassword1">Mật khẩu</label>
+      <label >Mật khẩu</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
     </div>
 
     <div class="form-group mb-3">
-      <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
+      <label >Nhập lại mật khẩu</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name="confpassword" placeholder="Nhập lại mật khẩu">
     </div>
 

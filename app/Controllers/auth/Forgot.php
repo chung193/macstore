@@ -139,7 +139,11 @@ class Forgot extends Controller
                     $userModel->updateUser($data, $id);
                     $session = session();
                     $session->setFlashdata('msg', 'Dữ liệu cập nhật');
-                    echo view('auth/contents/passwordchangesuccess');
+                    $dataview = [
+                        'subview' => 'auth/contents/passwordchangesuccess',
+                        'title' => 'Cập nhật mật khẩu thành công'
+                    ];
+                    echo view('auth/layout', $dataview);
                 } else {
                     $session = session();
                     $session->setFlashdata('msgErr', 'token sau hoặc link đã hết hạn');

@@ -89,7 +89,9 @@ abstract class BaseController extends Controller
             return true;
         }else{
             $group_id = $session->get('group_id');
+            //echo ($group_id); die();
             $permission = $permission_md->getPermission($group_id);
+            //print_r($permission); die();
             // $permission = (array)$permission['permission'];
             $router = service('router');
             $controller = class_basename($router->controllerName());
@@ -101,6 +103,7 @@ abstract class BaseController extends Controller
             if($controller == 'dashboard' || $controller == 'profile'){
                 return true;
             }
+            
             // echo $controller;
             $permission = (array)json_decode($permission->permission);
             // $role = array("edit", "add", "save", "update", "delete");

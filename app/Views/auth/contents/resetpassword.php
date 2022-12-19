@@ -10,12 +10,12 @@
 
 
     <div class="form-group mb-3">
-      <label for="exampleInputPassword1">Mật khẩu</label>
+      <label >Mật khẩu</label>
       <input type="password" class="form-control" id="password" name="password" placeholder="Mật khẩu">
     </div>
 
     <div class="form-group mb-3">
-      <label for="exampleInputPassword1">Nhập lại mật khẩu</label>
+      <label >Nhập lại mật khẩu</label>
       <input type="password" class="form-control" name="confpassword" placeholder="Nhập lại mật khẩu">
     </div>
 

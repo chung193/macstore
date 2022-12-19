@@ -38,7 +38,7 @@ echo view('manage/components/breadcrumb', $data)
             </div>
 
 
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label>Chương trình chạy từ:</label>
 
                 <div class="input-group">

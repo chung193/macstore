@@ -52,12 +52,17 @@ $routes->group('auth', ['filter' => 'noauth'], function ($routes) {
 
 $routes->group('manage', ['filter' => 'auth'], function ($routes) {
 
-    // crawl
-    $routes->get('crawl', 'manage/Crawl::index');
-    $routes->post('crawl', 'manage/Crawl::index');
+    // import file
+    $routes->get('import/(:segment)', 'manage\Import::index/$1');
+    $routes->post('import/importFile', 'manage\Import::importfile');
 
-    $routes->get('crawl/post', 'manage/Crawl::post');
-    $routes->post('crawl/post', 'manage/Crawl::post');
+    $routes->get('truncate', 'manage\Test::truncate');
+    // crawl
+    $routes->get('crawl', 'manage\Crawl::index');
+    $routes->post('crawl', 'manage\Crawl::index');
+
+    $routes->get('crawl/post', 'manage\Crawl::post');
+    $routes->post('crawl/post', 'manage\Crawl::post');
     // customer
     $routes->get('customer', 'manage\Customer::index');
 
@@ -89,7 +94,8 @@ $routes->group('manage', ['filter' => 'auth'], function ($routes) {
     $routes->post('order/save', 'manage\ShopOrder::save');
     $routes->post('order/update', 'manage\ShopOrder::update');
     $routes->get('order/delete/(:num)', 'manage\ShopOrder::delete');
-
+    $routes->get('order/update-status/(:num)', 'manage\ShopOrder::updateOrder/$1');
+    
     // customer
     $routes->add('customer/edit/(:num)', 'manage\Customer::edit/$1');
     $routes->get('customer/add', 'manage\Customer::add');

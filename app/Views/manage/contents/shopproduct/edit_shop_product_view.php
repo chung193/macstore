@@ -7,7 +7,7 @@ echo view('manage/components/breadcrumb', $data)
 <div class="row">
     <div class="col-md-8 col-12">
 
-
+    <form action="<?php echo base_url() ?>/manage/shop-product/update" method="post" enctype='multipart/form-data'>
         <?php if (session()->getFlashdata('msgErr')) : ?>
             <div class="alert alert-danger"><?= session()->getFlashdata('msgErr') ?></div>
         <?php endif; ?>
@@ -30,7 +30,7 @@ echo view('manage/components/breadcrumb', $data)
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="title" class="form-label">Danh mục</label>
-                    <select class="form-control select2 select2-hidden-accessible" name="category_id" aria-label="Default select example">
+                    <select class=" form-control  js-example-basic-multiple" name="category_id" aria-label="Default select example">
                         <?php
                         showCategories($shop_category);
                         ?>
@@ -41,7 +41,7 @@ echo view('manage/components/breadcrumb', $data)
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="title" class="form-label">Nhà cung cấp</label>
-                    <select class="form-control select2 select2-hidden-accessible" name="producer_id" aria-label="Default select example">
+                    <select class="form-control  js-example-basic-multiple" name="producer_id" aria-label="Default select example">
                         <?php
                         foreach ($shop_producer as $item) {
                             echo '<option value="' . $item['id'] . '">';
@@ -60,7 +60,7 @@ echo view('manage/components/breadcrumb', $data)
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="title" class="form-label">Hiển thị giá</label>
-                    <select class="form-control select2 select2-hidden-accessible" name="show_price" aria-label="Default select example">
+                    <select class="form-control js-example-basic-multiple" name="show_price" aria-label="Default select example">
                         <?php
                         if ($shopproduct->show_price) {
                             echo '<option value="1" selected>Hiển thị giá</option>
@@ -77,7 +77,7 @@ echo view('manage/components/breadcrumb', $data)
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="title" class="form-label">Áp dụng chương trình khuyến mại</label>
-                    <select class="form-control select2 select2-hidden-accessible" name="id_discount" aria-label="Default select example">
+                    <select class="form-control  js-example-basic-multiple" name="id_discount" aria-label="Default select example">
                         <?php
                         foreach ($discount as $item) {
                             if ($item['id'] == $shopproduct->id_discount) {
@@ -106,9 +106,7 @@ echo view('manage/components/breadcrumb', $data)
 
         <div class="mb-3">
             <label for="title" class="form-label">Chi tiết kỹ thuật</label>
-            <textarea class="form-control" name="detail" id="content" rows="3">
-                <?php echo $shopproduct->detail ?>
-            </textarea>
+            <textarea class="form-control" name="detail" id="content" rows="3"><?php echo $shopproduct->detail ?></textarea>
         </div>
 
         <div class="mb-3">
@@ -134,14 +132,14 @@ echo view('manage/components/breadcrumb', $data)
 
         <div class="input-group mb-3">
             <div class="custom-file">
-                <input type="file" name="img" id="imgus" class="custom-file-input">
+                <input type="file" name="img" id="imgus" class="custom-file-input  form-control">
                 <label class="custom-file-label" for="customFile">Chọn hình đại diện</label>
             </div>
         </div>
 
         <div class="input-group mb-3">
             <div class="custom-file">
-                <input type="file" name="img_list[]" multiple="" class="custom-file-input">
+                <input type="file" name="img_list[]" multiple="" class="custom-file-input form-control">
                 <label class="custom-file-label" for="customFile">Chọn nhiều file</label>
             </div>
         </div>
@@ -149,7 +147,7 @@ echo view('manage/components/breadcrumb', $data)
         <div id="preview" class="pb-3">
             <?php
             if ($shopproduct->img != '') {
-                echo '<img src="' . base_url() . '/public/uploads/product/' . $shopproduct->img . '" width="200" height="200">';
+                echo '<img src="' . base_url() . '/public/uploads/product/' . $shopproduct->img . '" style="max-height:200px">';
             }
             ?>
         </div>

@@ -1,5 +1,7 @@
-<?php namespace App\Controllers\manage;
- 
+<?php
+
+namespace App\Controllers\manage;
+
 use CodeIgniter\Controller;
 use App\Models\manage\Seo_model;
 use App\Models\manage\Shop_Order_model;
@@ -24,13 +26,17 @@ class ShopOrder extends BaseController
     public function index()
     {
         $model = new Shop_Order_model();
-        
-        $data['shoporder'] = $model->getShoporder();
+
+        if(isset($_GET['status'])){
+            $data['shoporder'] = $model->getShoporderStatus($_GET['status']);
+        }else{
+            $data['shoporder'] = $model->getShoporder();
+        }
         
         $session = session();
-        if($session->get('user_role') == 'editor'){
+        if ($session->get('user_role') == 'editor') {
             $subview = '/manage/contents/shoporder/shoporder_view_editor';
-        }else{
+        } else {
             $subview = '/manage/contents/shoporder/shoporder_view';
         }
         $data['data'] = array(
@@ -40,8 +46,8 @@ class ShopOrder extends BaseController
             'title'     => "Đơn hàng",
             'name'      => $session->get('user_name')
         );
-        
-        echo view('manage/layout',$data);
+
+        echo view('manage/layout', $data);
     }
     public function add()
     {
@@ -62,9 +68,9 @@ class ShopOrder extends BaseController
             'title'     => "Thêm mới đơn hàng",
             'name'      => $session->get('user_name')
         );
-        echo view('manage/layout',$data);
+        echo view('manage/layout', $data);
     }
- 
+
     public function save()
     {
         $now = date("Y-m-d H:i:s");
@@ -85,26 +91,26 @@ class ShopOrder extends BaseController
         $var = $this->request->getPost('product_id');
         $var2 = $this->request->getPost('qty');
         $array = array();
-        foreach($var as $key => $val){
-            
+        foreach ($var as $key => $val) {
+
             $arr = array(
                 'order_id' => $id,
-                'product_id' =>$val,
-                'qty' =>$var2[$key]
+                'product_id' => $val,
+                'qty' => $var2[$key]
             );
             $model->saveDetail($arr);
         }
-            $session = session();
-            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
-            return redirect()->to('/manage/order');
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+        return redirect()->to('/manage/order');
         // }else{
         //     $session = session();
-        //     $session->setFlashdata('msg', $this->validator->listErrors());
+        //     $session->setFlashdata('msgErr', $this->validator->listErrors());
         //     return redirect()->to('/manage/order/add/');
         // }
     }
 
-    public function edit($id=false)
+    public function edit($id = false)
     {
         $model = new Shop_Order_model();
         $data['shopOrder_list'] = $model->getShopOrder();
@@ -120,40 +126,49 @@ class ShopOrder extends BaseController
             'seo' => $seo,
             'name'      => $session->get('user_name')
         );
-        echo view('manage/layout',$data);
+        echo view('manage/layout', $data);
     }
- 
+
+    public function updateOrder($id = false)
+    {
+        $model = new Shop_Order_model();
+        $model->updateOrderStatus($id);
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+        return redirect()->to('/manage/order/detail/' . $id);
+    }
+
     public function update()
     {
-        
+
         $rules = [
-            'name'      => ['label' => 'Tên danh mục','rules' =>'required|max_length[600]'],
-            'description'       => ['label' => 'Mô tả','rules' =>'required'],
-            'parent_id'       => ['label' => 'Danh mục cha','rules' =>'required'],
+            'name'      => ['label' => 'Tên danh mục', 'rules' => 'required|max_length[600]'],
+            'description'       => ['label' => 'Mô tả', 'rules' => 'required'],
+            'parent_id'       => ['label' => 'Danh mục cha', 'rules' => 'required'],
         ];
 
         $id = $this->request->getPost('id');
-         
-        if($this->validate($rules)){
+
+        if ($this->validate($rules)) {
             $model = new Shop_Order_model();
-            
+
             // check default shopOrder
-            if($this->request->getPost('is_default')){
+            if ($this->request->getPost('is_default')) {
                 $model->defaultcat();
                 $default = 1;
-            }else{
+            } else {
                 $default = 0;
             }
 
-            if($this->request->getPost('slug') == ""){
+            if ($this->request->getPost('slug') == "") {
                 $slug = create_slug($this->request->getPost('name'));
-            }else{
+            } else {
                 $slug = create_slug($this->request->getPost('slug'));
             }
-            
+
             $count = $model->countWhere($slug);
-            if($count){
-                $slug=$slug.'-'.$count;
+            if ($count) {
+                $slug = $slug . '-' . $count;
             }
 
             $data = array(
@@ -166,26 +181,27 @@ class ShopOrder extends BaseController
             $model->updateshopOrder($data, $id);
 
             $seo_model = new Seo_model();
-             $seo_item = $seo_model->getseo($id, 'shopOrder')->getRow();
-             $seo = array(
-                 'meta_title' => $this->request->getPost('meta_title'),
-                 'meta_description' => $this->request->getPost('meta_description'),
-                 'content_type' => 'shopOrder',
-                 'content_id' => $id
-             );
-             // print_r($seo);die();
-             $this->updateSeoContent($seo, $seo_item->id);
-
-            return redirect()->to('/manage/shop-Order');
-        }else{
+            $seo_item = $seo_model->getseo($id, 'shopOrder')->getRow();
+            $seo = array(
+                'meta_title' => $this->request->getPost('meta_title'),
+                'meta_description' => $this->request->getPost('meta_description'),
+                'content_type' => 'shopOrder',
+                'content_id' => $id
+            );
+            // print_r($seo);die();
+            $this->updateSeoContent($seo, $seo_item->id);
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
-            return redirect()->to('/manage/shop-Order/edit/'.$id);
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+            return redirect()->to('/manage/shop-Order');
+        } else {
+            $session = session();
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
+            return redirect()->to('/manage/shop-Order/edit/' . $id);
         }
     }
 
-    
-    public function detail($id=false)
+
+    public function detail($id = false)
     {
         $model = new Shop_Order_model();
         $order = $model->getShoporder($id);
@@ -200,7 +216,6 @@ class ShopOrder extends BaseController
             'order' => $order,
             'detail' => $detail
         );
-        echo view('manage/layout',$data);
+        echo view('manage/layout', $data);
     }
-
 }

@@ -7,7 +7,7 @@
       <div class="alert alert-danger"><?= session()->getFlashdata('msgErr') ?></div>
     <?php endif; ?>
     <div class="form-group mb-3">
-      <label for="exampleInputEmail1">Email</label>
+      <label>Email</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Nhập email" value="<?= set_value('email') ?>">
     </div>
 

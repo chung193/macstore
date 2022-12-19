@@ -175,7 +175,6 @@ if (!function_exists('shop_cat_table')) {
             if ($val['parent_id'] == $parent_id) {
                 echo '
                     <tr>
-                        <td>' . $val['id'] . '</td>
                         <td>' . $char . $val['title'] . '</td>
                         <td>' . $val['slug'] . '</td>
                         <td>

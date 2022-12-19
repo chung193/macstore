@@ -32,9 +32,6 @@ class Register extends Controller
         $session = session();
         $rules = [
             'nicename'      => 'required|max_length[20]',
-            'lastname'      => 'max_length[20]',
-            'firstname'      => 'max_length[20]',
-            'middlename'      => 'max_length[20]',
             'email'         => 'required|min_length[6]|max_length[50]|valid_email|is_unique[user.email]',
             'password'      => 'required|min_length[6]|max_length[200]',
             'confpassword'  => 'matches[password]'
@@ -48,7 +45,7 @@ class Register extends Controller
                 'nicename'     => $this->request->getVar('nicename'),
                 'email'    => $this->request->getVar('email'),
                 'is_superadmin' => 0,
-                'role' => 'editor',
+                'group_id' => 2,
                 'registered' => $now,
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];

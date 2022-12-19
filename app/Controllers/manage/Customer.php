@@ -43,13 +43,15 @@ class Customer extends BaseController
     public function add()
     {
         $session = session();
+        $ttp = new Tinhthanhpho_model();
         $model = new Shop_Customer_model();
         $data['customer'] = $model->getcustomer();
         $data['data'] = array(
             'site' => $this->site,
             'type' => 'form',
+            'ttp' => $ttp->gettinhthanhpho(),
             'subview'   => '/manage/contents/customer/add_customer_view',
-            'title'     => "Thêm customer",
+            'title'     => "Thêm thông tin khách hàng",
             'name'      => $session->get('user_name')
         );
         echo view('manage/layout',$data);
@@ -58,46 +60,41 @@ class Customer extends BaseController
     public function save()
     {
         $rules = [
-            'text_main'      => 'required|max_length[600]',
-            'text_sub'      => 'required|max_length[600]',
-            'url'  => 'min_length[3]|max_length[2000]',
-            'location'  => 'min_length[3]|max_length[2000]',
-            'img' => [
-                'label' => 'Image File',
-                'rules' => 'is_image[img]'
-                    . '|mime_in[img,image/jpg,image/jpeg,image/gif,image/png,image/webp]'
-                    . '|max_size[img,102400]'
-                    . '|max_dims[img,204800, 204800]',
-            ],
+            'name'      => 'required|max_length[600]',
+            'username'      => 'required|max_length[600]',
+            'phone'      => 'required|max_length[600]',
+            'email'  => 'min_length[3]|max_length[2000]',
+            'address'  => 'min_length[3]|max_length[2000]',
         ];
          
         if($this->validate($rules)){
             $model = new Shop_Customer_model();
-            
-            if($this->request->getFile('img') !== ""){
-                $img = $this->request->getFile('img');
-                $basename = '';
-                if ($img->isValid() && !$img->hasMoved()) {
-                    $img->move(ROOTPATH.'/public/uploads/customer/');
-                    $basename = $img->getName();
-                }
+            $pw = '';
+            if($this->request->getVar('password')){
+                $pw = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
             }else{
-                $basename = '';
+                $pw = password_hash('123123', PASSWORD_DEFAULT);
             }
-
+           
             $data = array(
-                'text_main'     => $this->request->getPost('text_main'),
-                'text_sub' => $this->request->getPost('text_sub'),
-                'url' => $this->request->getPost('url'),
-                'img' => $basename,
-                'location' => $this->request->getPost('location'),
+                'name'     => $this->request->getPost('name'),
+                'username'     => $this->request->getPost('username'),
+                'email' => $this->request->getPost('email'),
+                'username' => $this->request->getPost('username'),
+                'phone' => $this->request->getPost('phone'),
+                'address' => $this->request->getPost('address'),
+                'matp' => $this->request->getPost('matp'),
+                'dob' => $this->request->getPost('dob'),
+                'password' => $pw
             );
-            $model->savecustomer($data);
 
+            $model->savecustomer($data);
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/customer');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/customer/add/');
         }
     }
@@ -114,7 +111,7 @@ class Customer extends BaseController
             'site' => $this->site,
             'type' => 'form',
             'subview'   => '/manage/contents/customer/edit_customer_view',
-            'title'     => "Sửa customer",
+            'title'     => "Sửa thông tin khách hàng",
             'ttp' => $ttp->gettinhthanhpho(),
             'name'      => $session->get('user_name')
         );
@@ -125,6 +122,7 @@ class Customer extends BaseController
     {
         $rules = [
             'name'      => 'required|max_length[600]',
+            'username'      => 'required|max_length[600]',
             'phone'      => 'required|max_length[600]',
             'email'  => 'min_length[3]|max_length[2000]',
             'address'  => 'min_length[3]|max_length[2000]',
@@ -132,7 +130,13 @@ class Customer extends BaseController
         $id = $this->request->getPost('id');
         if($this->validate($rules)){
             $model = new Shop_Customer_model();
-            
+            $pw = '';
+            if($this->request->getVar('password')){
+                $pw = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
+            }else{
+                $pw = $this->request->getVar('old_pw');
+            }
+
             $data = array(
                 'name'     => $this->request->getPost('name'),
                 'email' => $this->request->getPost('email'),
@@ -141,12 +145,15 @@ class Customer extends BaseController
                 'address' => $this->request->getPost('address'),
                 'matp' => $this->request->getPost('matp'),
                 'dob' => $this->request->getPost('dob'),
+                'password' => $pw
             );
             $model->updatecustomer($data, $id);
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/customer');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/customer/edit/'. $id);
         }
     }
@@ -155,6 +162,8 @@ class Customer extends BaseController
     {
         $model = new Shop_Customer_model();
         $model->deletecustomer($id);
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
         return redirect()->to('/manage/customer');
     }
 

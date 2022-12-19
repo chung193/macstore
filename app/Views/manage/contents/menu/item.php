@@ -13,7 +13,7 @@
                 </ul>
             </div>
         </div>
-        <p>Click the Output button to execute the function <code>getString();</code></p>
+        <p>Nhấn nút Output để thực hiện phương thức <code>getString();</code></p>
         <div class="card">
             <div class="card-header">JSON Output
                 <div class="float-right">

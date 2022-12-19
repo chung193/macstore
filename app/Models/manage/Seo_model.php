@@ -19,7 +19,7 @@ class Seo_model extends Model
             return $query->getResultArray();
         } else {
             $builder->select('seo.*');
-            $builder->where('id', $id);
+            $builder->where('content_id', $id);
             $builder->where('content_type', $type);
             $builder->orderBy('id', 'DESC');
             $query = $builder->get();
@@ -27,6 +27,14 @@ class Seo_model extends Model
         }
     }
 
+    public function getById($id){
+        $db      = \Config\Database::connect();
+        $builder = $db->table($this->table);
+        $builder->select('seo.*');
+        $builder->where('id', $id);
+        $query = $builder->get();
+        return $query->getRow();
+    }
     public function saveseo($data)
     {
         $query = $this->db->table($this->table)->insert($data);

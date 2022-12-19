@@ -142,6 +142,7 @@ class Page extends BaseController
             'type' => 'form',
             'subview'   => '/manage/contents/page/edit_page_view',
             'title'     => "Sửa trang",
+            'seo' => $seo,
             'name'      => $session->get('user_name')
         );
         echo view('manage/layout',$data);
@@ -157,13 +158,13 @@ class Page extends BaseController
 
             if($this->request->getFile('image') !== ""){
                 $img = $this->request->getFile('image');
-                $basename = 'default.jpg';
+                $basename = $this->request->getPost('old_img');
                 if ($img->isValid() && !$img->hasMoved()) {
                     $img->move(ROOTPATH.'/public/uploads/page/');
                     $basename = $img->getName();
                 }
             }else{
-                $basename = 'default.jpg';
+                $basename = $this->request->getPost('old_img');
             }
             $model = new Page_model();
             $now = date('Y-m-d H:i:s');

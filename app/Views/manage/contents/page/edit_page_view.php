@@ -20,6 +20,7 @@ echo view('manage/components/breadcrumb', $data)
 
 
             <input type="hidden" class="form-control" name="id"  value="<?php echo $page->id ?>">
+            <input type="hidden" class="form-control" name="old_img"  value="<?php echo $page->img ?>">
 
             <div class="mb-3">
                 <label for="title" class="form-label">Slug</label>

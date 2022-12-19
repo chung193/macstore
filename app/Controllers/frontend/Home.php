@@ -9,6 +9,7 @@ use App\Models\frontend\Shop_Slider_model;
 use App\Models\frontend\Shop_Product_model;
 use App\Models\frontend\Banner_model;
 use App\Models\frontend\Option_model;
+use App\Models\frontend\Menu_model;
 
 class Home extends BaseController
 {
@@ -22,9 +23,11 @@ class Home extends BaseController
         $shop_product_md = new Shop_Product_model();
         $banner_md = new Banner_model();
         $option_md = new Option_model();
+        $jsonmenu_md = new Menu_model();
         $this->base = array(
             'ui' => $ui_md->getUi(),
             'info' => $info_md->getInfo(),
+            'json_menu' => $jsonmenu_md->getmenu('main'),
             'menu' => $shop_category_md->getShopCategory(),
             'slider' => $shop_slider_md->getSlider(),
             // arrivals product in homepage

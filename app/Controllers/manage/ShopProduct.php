@@ -130,6 +130,7 @@ class ShopProduct extends BaseController
                 'category_id' => $this->request->getPost('category_id'),
                 'producer_id' => $this->request->getPost('producer_id'),
                 'description' => $this->request->getPost('description'),
+                'detail' => $this->request->getPost('detail'),
                 'price' => $this->request->getPost('price'),
                 'slug' => $slug,
                 'img' => $basename,
@@ -149,10 +150,12 @@ class ShopProduct extends BaseController
                 'content_id' => $id_inserted
             );
             $this->setSeoContent($seo);
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/shop-product');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/shop-product/add/');
         }
     }
@@ -175,6 +178,31 @@ class ShopProduct extends BaseController
                 'site' => $this->site,
                 'type' => 'form',
                 'subview'   => '/manage/contents/shopproduct/edit_shop_product_view',
+                'title'     => "Chỉnh sửa thông tin sản phẩm",
+                'seo' => $seo,
+                'name'      => $session->get('user_name')
+            );
+            echo view('manage/layout',$data);
+    }
+
+    public function detail($id)
+    {
+        
+            $model = new Shop_Product_model();
+            $catmodel = new Shop_Category_model();
+            $pro = new Shop_Producer_model();
+            $discount = new Discount_model();
+            $data['shop_category'] = $catmodel->getShopCategory();
+            $data['shop_producer'] = $pro->getproducer();
+            $data['shopproduct'] = $model->getshopproduct($id)->getRow();
+            $data['discount'] = $discount->getdiscount();
+            //print_r($data['discount']);die();
+            $seo = $this->getSeoContent($id, 'product')->getRow();
+            $session = session();
+            $data['data'] = array(
+                'site' => $this->site,
+                'type' => 'form',
+                'subview'   => '/manage/contents/shopproduct/detail_shop_product_view',
                 'title'     => "Chỉnh sửa thông tin sản phẩm",
                 'seo' => $seo,
                 'name'      => $session->get('user_name')
@@ -257,6 +285,7 @@ class ShopProduct extends BaseController
                 'category_id' => $this->request->getPost('category_id'),
                 'producer_id' => $this->request->getPost('producer_id'),
                 'description' => $this->request->getPost('description'),
+                'detail' => $this->request->getPost('detail'),
                 'price' => $this->request->getPost('price'),
                 'show_price' => $this->request->getPost('show_price'),
                 'id_discount' => $this->request->getPost('id_discount'),
@@ -283,10 +312,12 @@ class ShopProduct extends BaseController
              );
              // print_r($seo);die();
              $this->updateSeoContent($seo, $seo_item->id);
+             $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/shop-product');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/shop-product/edit/'.$id);
         }
     }
@@ -297,6 +328,8 @@ class ShopProduct extends BaseController
         // $model->moveTrash($id);
         // return redirect()->to('/manage/shopproduct');
         $this->delete_from_trash($id);
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
         return redirect()->to('/manage/shop-product');
     }
 
@@ -304,6 +337,8 @@ class ShopProduct extends BaseController
     {
         $model = new Shop_Product_model();
         $model->Restore($id);
+        $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
         return redirect()->to('/manage/shopproduct');
     }
 
@@ -311,6 +346,8 @@ class ShopProduct extends BaseController
     {
         $model = new Shop_Product_model();
         $model->deleteshopproduct($id);
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
         return redirect()->to('/manage/shop-product');
     }
 

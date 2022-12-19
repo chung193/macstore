@@ -5,21 +5,17 @@
       <div class="alert alert-danger"><?= session()->getFlashdata('msgErr') ?></div>
     <?php endif; ?>
     <div class="form-group mb-3">
-      <label for="exampleInputEmail1">Email</label>
+      <label >Email</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Nhập email" value="<?= set_value('email') ?>">
     </div>
     <div class="form-group mb-3">
-      <label for="exampleInputPassword1">Mật khẩu</label>
+      <label >Mật khẩu</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
     </div>
     <div class="row p-0">
       <div class="col-md-12 col-12">
         <p><a href="<?= base_url()?>/auth/forgot">Quên mật khẩu?</a></p>
       </div>
-      <!-- <div class="form-check mb-3 col-md-6 col-6">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Giữ tôi đăng nhập</label>
-      </div> -->
     </div>
 
 

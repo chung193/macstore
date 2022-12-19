@@ -27,8 +27,8 @@
     </div>
 
     <div class="card-body">
-    <?php if(session()->getFlashdata('msg')):?>
-        <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+    <?php if(session()->getFlashdata('msgErr')):?>
+        <div class="alert alert-danger"><?= session()->getFlashdata('msgErr') ?></div>
     <?php endif;?>
     <form action="<?php echo base_url()?>/manage/shop-ui/update" method="post" enctype='multipart/form-data'>
         <div class="mb-3">

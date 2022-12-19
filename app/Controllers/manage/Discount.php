@@ -108,11 +108,12 @@ class Discount extends BaseController
                 'to_date' => date("Y-m-d", strtotime($arr[1]))
             );
             $model->savediscount($data);
-
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/discount');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/discount/add/');
         }
     }
@@ -187,19 +188,29 @@ class Discount extends BaseController
                 'to_date' => date("Y-m-d", strtotime($arr[1]))
             );
             $model->updatediscount($data, $id);
-
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
             return redirect()->to('/manage/discount');
         }else{
             $session = session();
-            $session->setFlashdata('msg', $this->validator->listErrors());
+            $session->setFlashdata('msgErr', $this->validator->listErrors());
             return redirect()->to('/manage/discount/edit/'.$id);
         }
     }
 
     public function delete($id)
     {
-        $model = new discount_model();
-        $model->deletediscount($id);
+        if($id != 1){
+            $model = new discount_model();
+        
+            $model->deletediscount($id);
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+        }else{
+            $session = session();
+            $session->setFlashdata('msg','Không thể xóa mã mặc định');
+        }
+        
         return redirect()->to('/manage/discount');
     }
 

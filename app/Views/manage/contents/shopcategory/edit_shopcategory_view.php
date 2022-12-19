@@ -10,12 +10,12 @@ echo view('manage/components/breadcrumb', $data)
   <div class="row">
     <div class="col-12 col-md-8">
       <?php if (session()->getFlashdata('msg')) : ?>
-        <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+        <div class="alert alert-danger"><?= session()->getFlashdata('msgErr') ?></div>
       <?php endif; ?>
 
       <div class="mb-3">
         <label for="title" class="form-label">Tiêu đề</label>
-        <input type="text" id="title" class="form-control" name="name" value="<?php echo $shopcategory->title ?>" placeholder="tiêu đề">
+        <input type="text" id="title" class="form-control" name="title" value="<?php echo $shopcategory->title ?>" placeholder="tiêu đề">
       </div>
 
 
@@ -23,7 +23,7 @@ echo view('manage/components/breadcrumb', $data)
 
       <div class="mb-3">
         <label for="title" class="form-label">Danh mục cha</label>
-        <select class="form-control select2 select2-hidden-accessible" name="parent_id" aria-label="Default select example">
+        <select class="form-control" name="parent_id" aria-label="Default select example">
           <option selected value="0">Chọn 1 danh mục</option>
           <?php
           showShopCategories($shopcategory->parent_id, $shopcategory_list);

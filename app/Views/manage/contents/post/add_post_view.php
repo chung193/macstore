@@ -21,7 +21,7 @@ echo view('manage/components/breadcrumb', $data)
                 <div class="col-12 col-md-6">
                     <div class="mb-3">
                         <label for="title" class="form-label">Danh mục cha</label>
-                        <select class="form-control select2 select2-hidden-accessible" name="parentid" aria-label="Default select example">
+                        <select class="form-control" name="parentid" aria-label="Default select example">
                             <?php
                             showCategories($category);
                             ?>
@@ -68,7 +68,7 @@ echo view('manage/components/breadcrumb', $data)
         <div class="input-group mb-3">
             <div class="custom-file">
                 <input type="file" name="img" id="imgus" class="custom-file-input form-control">
-                <label class="custom-file-label" for="customFile">Choose file</label>
+                <?= session()->getFlashdata('msgErr') ?>
             </div>
         </div>
 

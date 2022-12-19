@@ -7,9 +7,20 @@ use App\Models\manage\Shop_Producer_model;
 use App\Models\manage\Seo_model;
 use App\Models\manage\Post_model;
 use App\Models\manage\Category_model;
+use App\Models\manage\Info_model;
 
 class Crawl extends BaseController
 {
+    public $site;
+    function __construct()
+    {
+
+        $info_md = new Info_model();
+        $this->site = array(
+            'info' => $info_md->getInfo()
+        );
+    }
+
     public function index()
     {
         helper('simple_html_dom_helper');
@@ -101,10 +112,6 @@ class Crawl extends BaseController
                 $slug=$slug.'-'.$count;
             }
 
-            
-
-            
-
             $product = array(
                 'name'=> strval($name),
                 'slug'=> $slug,
@@ -155,8 +162,12 @@ class Crawl extends BaseController
             $data['data'] = array(
                 'subview'   => $subview,
                 'title'     => "Crawl",
+                'type' => 'form',
                 'name'      => $session->get('user_name')
             );
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+            return redirect()->to('/manage/crawl');
         }else{
             $data = array(
                 'url'=>''
@@ -167,11 +178,13 @@ class Crawl extends BaseController
             $data['shop_category'] = $cat->getShopCategory();
             $data['shop_producer'] = $pro->getproducer();
             $data['data'] = array(
+                'site' => $this->site,
                 'subview'   => $subview,
-                'title'     => "Crawl",
+                'title'     => "Crawl sản phẩm",
                 'name'      => $session->get('user_name')
             );
         }
+        
         echo view('manage/layout',$data);
     }
 
@@ -261,6 +274,9 @@ class Crawl extends BaseController
                 'title'     => "Crawl",
                 'name'      => $session->get('user_name')
             );
+            $session = session();
+            $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+            return redirect()->to('/manage/crawl/post');
         }else{
             $data = array(
                 'url'=>''
@@ -270,10 +286,13 @@ class Crawl extends BaseController
             $data['category'] = $cat->getCategory();
             $data['data'] = array(
                 'subview'   => $subview,
-                'title'     => "Crawl",
+                'title'     => "Crawl bài viết",
+                'site' => $this->site,
+                'type' => 'form',
                 'name'      => $session->get('user_name')
             );
         }
+        
         echo view('manage/layout',$data);
     }
 }
