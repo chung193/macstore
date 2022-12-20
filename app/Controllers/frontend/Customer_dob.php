@@ -5,7 +5,7 @@ use App\Models\manage\Shop_Customer_model;
 use App\Models\manage\Tinhthanhpho_model;
 use App\Models\manage\Info_model;
 use App\Models\manage\Option_model;
-
+use App\Models\frontend\Menu_model;
 class Customer_dob extends BaseController
 {
     public $site;

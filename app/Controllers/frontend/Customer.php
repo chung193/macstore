@@ -10,7 +10,7 @@ use App\Models\frontend\Shop_Product_model;
 use App\Models\frontend\Banner_model;
 use App\Models\frontend\Option_model;
 use App\Models\frontend\Shop_Customer_model;
-
+use App\Models\frontend\Menu_model;
 class Customer extends BaseController
 {
     public $base; // for some data common
@@ -23,11 +23,13 @@ class Customer extends BaseController
         $shop_product_md = new Shop_Product_model();
         $banner_md = new Banner_model();
         $option_md = new Option_model();
+        $jsonmenu_md = new Menu_model();
         $this->base = array(
             'ui' => $ui_md->getUi(),
             'info' => $info_md->getInfo(),
             'menu' => $shop_category_md->getShopCategory(),
             'slider' => $shop_slider_md->getSlider(),
+            'json_menu' => $jsonmenu_md->getmenu('main'),
             // arrivals product in homepage
             'mostsaleslick' => $shop_product_md->getArrivalsProduct(6),
             'arrivals' => $shop_product_md->getArrivalsProduct(3),
@@ -101,8 +103,6 @@ class Customer extends BaseController
                     'customer_isLoggedIn' => TRUE
                 ];
                 $session->set($ses_data);
-                // $session->get('customer_name');
-                // echo $session->get('customer_name');die();
                 $session->setFlashdata('msg', 'Đăng nhập thành công');
                 return redirect()->to('');
             

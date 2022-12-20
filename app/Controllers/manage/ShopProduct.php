@@ -24,11 +24,25 @@ class ShopProduct extends BaseController
     public function index()
     {
         $model = new Shop_Product_model();
-        $data['shopproduct'] = $model->getshopproduct();
+        $cat_md = new Shop_Category_model();
+        $producer_md = new Shop_Producer_model();
+        if(isset($_GET['catalog'])){
+            $data['shopproduct'] = $model->getshopproductbycat($_GET['catalog']);
+        }else{
+            if(isset($_GET['producer']))
+            {
+                $data['shopproduct'] = $model->getshopproductbyproducer($_GET['producer']);
+            }else{
+                $data['shopproduct'] = $model->getshopproduct();
+            }
+        }
+        
         $session = session();
         $data['data'] = array(
             'site' => $this->site,
             'type' => 'table',
+            'cat' => $cat_md->getShopCategory(),
+            'producer' => $producer_md->getproducer(),
             'subview'   => '/manage/contents/shopproduct/shop_product_view',
             'title'     => "Sản phẩm",
             'name'      => $session->get('user_name')

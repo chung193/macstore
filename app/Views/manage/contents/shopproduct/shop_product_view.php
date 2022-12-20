@@ -1,11 +1,47 @@
 <?php
+// print_r($producer); die();
+
+$x = ($_GET)?(isset($_GET['catalog'])? $_GET['catalog'] : $_GET['producer']):'';
+$y = ($_GET)?(isset($_GET['catalog'])? ' theo danh mục ' : ' theo nhà cung cấp '):'';
+$filter = $y.'<b>'.$x.'</b>';
 $data = array(
   'title' => $title
 );
 echo view('manage/components/breadcrumb', $data)
+
 ?>
 
-<a href="<?php echo base_url() ?>/manage/shop-product/add/" class="btn btn-1 mb-3">Thêm mới</a>
+
+<div class="row">
+  <div class="col-12 col-md-4">
+    <a href="<?php echo base_url() ?>/manage/shop-product/add/" class="btn btn-1 mb-3">Thêm mới</a>
+  </div>
+  <div class="col-12 col-md-8">
+    <div class="row">
+    <div class="col-12 col-md-4">
+      <label>Lọc <?= $filter?></label>
+    </div>
+      <div class="col-12 col-md-4">
+        <select class="form-control" id="selectCat">
+          <?php 
+            foreach($cat as $val){
+              echo '<option value="'.base_url().'/manage/shop-product?catalog='.$val['title'].'">'.$val['title'].'</option>';
+            }
+          ?>
+        </select>
+      </div>
+      <div class="col-12 col-md-4">
+        <select class="form-control" id="selectProducer">
+          <?php 
+            foreach($producer as $item){
+              echo '<option value="'.base_url().'/manage/shop-product?producer='.$item['name'].'">'.$item['name'].'</option>';
+            }
+          ?>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

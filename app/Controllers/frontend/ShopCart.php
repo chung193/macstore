@@ -16,6 +16,8 @@ use App\Models\frontend\City_model;
 use App\Models\frontend\Shop_Customer_model;
 use App\Models\frontend\Shop_Order_model;
 use App\Models\frontend\User_model;
+use App\Models\frontend\Menu_model;
+use App\Models\frontend\Notification_model;
 
 class ShopCart extends BaseController
 {
@@ -29,6 +31,7 @@ class ShopCart extends BaseController
         $shop_product_md = new Shop_Product_model();
         $banner_md = new Banner_model();
         $option_md = new Option_model();
+        $jsonmenu_md = new Menu_model();
         $this->base = array(
             'ui' => $ui_md->getUi(),
             'info' => $info_md->getInfo(),
@@ -40,6 +43,7 @@ class ShopCart extends BaseController
             'featured' => $shop_product_md->getFeaturedProduct(3),
             'mostsale' => $shop_product_md->getMostSaleProduct(3),
             'banner' => $banner_md->getbanner(),
+            'json_menu' => $jsonmenu_md->getmenu('main'),
         );     
     }
 
@@ -125,6 +129,13 @@ class ShopCart extends BaseController
 
         $order_md =  new Shop_Order_model();
         $order_md->saveOrder($order);
+        $noti_md = new Notification_model();
+        $noti = array(
+            'name' => 'Đơn hàng mới',
+            'content' => 'Bạn vừa có đơn hàng mới',
+            'created' => $now
+        );
+        $noti_md->savenoti($noti);
         $order_id = $order_md->insertID();
         
         // insert order vào database

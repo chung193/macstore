@@ -1,6 +1,0 @@
-STT,Tên danh mục,mô tả,Danh mục cha,meta title,,,Quy tắc
-1,Mac ,Các dòng máy tính apple,,Các dòng máy tính apple,,,"Danh mục chia  theo danh mục cha - con 2 cấp, vd laptop gaming thì danh mục con là asus tuf, asus..."
-2,Laptop,"Các dòng máy tính phục vụ văn phòng, dùng cho thiết kế đồ họa hoặc kiến trúc sư",,"Các dòng máy tính phục vụ văn phòng, dùng cho thiết kế đồ họa hoặc kiến trúc sư",,," stt là id của 1 danh mục, ở cột danh mục cha, thì danh mục đó là danh mục con của danh mục nào thì điền id đó"
-3,Laptop gaming,Các dòng máy tính cho game thủ,,Các dòng máy tính cho game thủ,,,ko có danh mục cha thì điền là 0
-4,Robot hút bụi,Robot hút bụi,,Robot hút bụi,,,Mac store là gì? danh mục là đầu chia theo loại sản phẩm? loại sản phẩm mac store???
-5,Máy lọc nước,Máy lọc nước,,Máy lọc nước,,,

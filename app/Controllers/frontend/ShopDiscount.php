@@ -14,7 +14,7 @@ use App\Models\frontend\Seo_model;
 use App\Models\frontend\Post_model;
 use App\Models\frontend\Shop_Discount_model;
 use App\Models\frontend\Category_model;
-
+use App\Models\frontend\Menu_model;
 
 class ShopDiscount extends BaseController
 {
@@ -28,6 +28,7 @@ class ShopDiscount extends BaseController
         $shop_product_md = new Shop_Product_model();
         $banner_md = new Banner_model();
         $option_md = new Option_model();
+        $jsonmenu_md = new Menu_model();
         $this->base = array(
             'ui' => $ui_md->getUi(),
             'info' => $info_md->getInfo(),
@@ -39,7 +40,7 @@ class ShopDiscount extends BaseController
             'featured' => $shop_product_md->getFeaturedProduct(3),
             'mostsale' => $shop_product_md->getMostSaleProduct(3),
             'banner' => $banner_md->getbanner(),
-           
+            'json_menu' => $jsonmenu_md->getmenu('main'),
         );     
     }
     

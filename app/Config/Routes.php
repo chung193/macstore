@@ -37,7 +37,7 @@ $routes->get('auth/logout', 'auth\Login::logout');
 $routes->get('customer-dob', 'frontend\Customer_dob::index');
 $routes->get('get-noti', 'frontend\Notifications::readAll');
 $routes->get('get-noti-status', 'frontend\Notifications::readAllStatus');
-
+$routes->get('read-noti', 'frontend\Notifications::read');
 // auth
 $routes->group('auth', ['filter' => 'noauth'], function ($routes) {
     $routes->get('login', 'auth\Login::index', ['as' => 'login']);

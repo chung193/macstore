@@ -53,7 +53,7 @@
 
             <div class="single-product__variations d-none d-lg-block color_variant_conatiner">
                <div class="size-container"></div>
-               <script>$('.size__exit').parent('div').addClass('size__parent');$('.size__parent').parent('div').addClass('size_variant_conatiner');</script>
+               <script>//$('.size__exit').parent('div').addClass('size__parent');$('.size__parent').parent('div').addClass('size_variant_conatiner');</script>
                <div class="color-container color_variant_div">
                   <ul class="grid-color-swatch  variant_exist">
                      <?php 
@@ -71,7 +71,6 @@
 
                   </ul>
                </div>
-               <script>$('.color__Variant').parent('ul').addClass('variant_exist');$('.variant_exist').parent('div').addClass('color_variant_div');$('.color_variant_div').parent('div').addClass('color_variant_conatiner');</script>
             </div>
          </div>
          <div class="single-product__content " style="padding-top: 0px;">

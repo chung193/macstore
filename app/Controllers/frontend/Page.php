@@ -11,7 +11,7 @@ use App\Models\frontend\Banner_model;
 use App\Models\frontend\Option_model;
 use App\Models\frontend\Page_model;
 use App\Models\frontend\Seo_model;
-
+use App\Models\frontend\Menu_model;
 
 class Page extends BaseController
 {
@@ -25,11 +25,13 @@ class Page extends BaseController
         $shop_product_md = new Shop_Product_model();
         $banner_md = new Banner_model();
         $option_md = new Option_model();
+        $jsonmenu_md = new Menu_model();
         $this->base = array(
             'ui' => $ui_md->getUi(),
             'info' => $info_md->getInfo(),
             'menu' => $shop_category_md->getShopCategory(),
             'slider' => $shop_slider_md->getSlider(),
+            'json_menu' => $jsonmenu_md->getmenu('main'),
             // arrivals product in homepage
             'mostsaleslick' => $shop_product_md->getArrivalsProduct(6),
             'arrivals' => $shop_product_md->getArrivalsProduct(3),

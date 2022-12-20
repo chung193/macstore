@@ -30,7 +30,6 @@ $arr = json_decode($arr->json);
                         ?>
                         
                      </ul>
-                     <script> /* Mega Menu */ $('.mega_dropdown').parent('ul').addClass('mega-menu'); $('.drop_item').parent('ul').addClass('single-column-menu'); $('.multi_item').parent('ul').addClass('single-column-menu ');</script> 
                   </nav>
                </div>
             </div>

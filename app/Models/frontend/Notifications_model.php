@@ -47,7 +47,7 @@ class Notifications_model extends Model
     }
 
 
-    public function saveCategory($data)
+    public function savenoti($data)
     {
         $query = $this->db->table($this->table)->insert($data);
         return $query;

@@ -136,7 +136,7 @@
                         Import
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?= base_url().'/manage/import/product' ?>">Sản phẩm</a></li>
+                        <li><a class="dropdown-item" href="<?= base_url() . '/manage/import/product' ?>">Sản phẩm</a></li>
                         <li>
                             <hr class="dropdown-divider m-0">
                         </li>
@@ -183,12 +183,15 @@
                     </ul>
                 </li>
                 <li class="nav-item pr-3" id="noti-menu">
-                    <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-bell"></i>
-                        <!-- <span id="noti" class="badge rounded-pill bg-danger"></span> -->
+                    <a class="nav-link position-relative" data-bs-toggle="modal"  href="#exampleModalToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-bell"></i>
+                        <span id="noti" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <span class="visually-hidden">Thông báo chưa đọc</span>
+                        </span>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+

@@ -45,10 +45,10 @@
                 <input type="text" name="username" id="LastName" class="input-full" placeholder="Tên đăng nhập" autocapitalize="words">
 
                 <label for="CreatePassword" class="hidden-label">Mật khẩu</label>
-                <input type="password" name="password" id="CreatePassword" class="input-full" placeholder="Mật khẩu">
+                <input type="password" name="password" id="password" class="input-full" placeholder="Mật khẩu">
 
                 <label for="CreatePassword" class="hidden-label">Xác nhận lại mật khẩu</label>
-                <input type="password" name="confirmpassword" id="CreatePassword" class="input-full" placeholder="Xác nhận lại mật khẩu">
+                <input type="password" name="confirmpassword" class="input-full" placeholder="Xác nhận lại mật khẩu">
 
                 <div class="form-action-button">
                   <button type="submit" class="astor-button astor-button--medium">Tạo tài khoản</button>
