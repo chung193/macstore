@@ -1,0 +1,756 @@
+ERROR - 2022-12-21 10:45:13 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '36 = :36:
+WHERE `id` = :id:' at line 1 in C:\xampp\htdocs\macstore\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\macstore\system\Database\MySQLi\Connection.php(292): mysqli->query('UPDATE `shop_pr...', 0)
+#1 C:\xampp\htdocs\macstore\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `shop_pr...')
+#2 C:\xampp\htdocs\macstore\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `shop_pr...')
+#3 C:\xampp\htdocs\macstore\system\Database\BaseBuilder.php(2079): CodeIgniter\Database\BaseConnection->query('UPDATE `shop_pr...', Array, false)
+#4 C:\xampp\htdocs\macstore\app\Models\manage\Shop_Product_model.php(81): CodeIgniter\Database\BaseBuilder->update('36', Array)
+#5 C:\xampp\htdocs\macstore\app\Controllers\manage\ShopProduct.php(81): App\Models\manage\Shop_Product_model->updateshopproduct('36', Array)
+#6 C:\xampp\htdocs\macstore\system\CodeIgniter.php(927): App\Controllers\manage\ShopProduct->import()
+#7 C:\xampp\htdocs\macstore\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopProduct))
+#8 C:\xampp\htdocs\macstore\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\macstore\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-21 10:45:13 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '36 = :36:
+WHERE `id` = :id:' at line 1
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('UPDATE `shop_product` SET 36 = :36:
+WHERE `id` = :id:', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `shop_product` SET 36 = :36:
+WHERE `id` = :id:')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `shop_product` SET 36 = :36:
+WHERE `id` = :id:')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2079): CodeIgniter\Database\BaseConnection->query('UPDATE `shop_product` SET 36 = :36:
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH\Models\manage\Shop_Product_model.php(81): CodeIgniter\Database\BaseBuilder->update('36', [...])
+ 6 APPPATH\Controllers\manage\ShopProduct.php(81): App\Models\manage\Shop_Product_model->updateshopproduct('36', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\ShopProduct->import()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\ShopProduct))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 10:55:00 --> Undefined variable $slider
+in APPPATH\Views\manage\contents\popup\popup_view.php on line 21.
+ 1 APPPATH\Views\manage\contents\popup\popup_view.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $slider', 'APPPATH\\Views\\manage\\contents\\popup\\popup_view.php', 21)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\contents\\popup\\popup_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/Popup/Popup_view', [], true)
+ 5 APPPATH\Views\manage\layout.php(60): view('/manage/contents/Popup/Popup_view', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 9 APPPATH\Controllers\manage\Popup.php(32): view('manage/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\Popup->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\Popup))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 10:55:21 --> Undefined variable $popup
+in APPPATH\Views\manage\contents\popup\popup_view.php on line 21.
+ 1 APPPATH\Views\manage\contents\popup\popup_view.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $popup', 'APPPATH\\Views\\manage\\contents\\popup\\popup_view.php', 21)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\contents\\popup\\popup_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/Popup/Popup_view', [], true)
+ 5 APPPATH\Views\manage\layout.php(60): view('/manage/contents/Popup/Popup_view', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 9 APPPATH\Controllers\manage\Popup.php(32): view('manage/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\Popup->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\Popup))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:08:24 --> Undefined array key "main_title"
+in APPPATH\Views\manage\contents\popup\popup_view.php on line 24.
+ 1 APPPATH\Views\manage\contents\popup\popup_view.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "main_title"', 'APPPATH\\Views\\manage\\contents\\popup\\popup_view.php', 24)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\contents\\popup\\popup_view.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/popup/popup_view', [], true)
+ 5 APPPATH\Views\manage\layout.php(60): view('/manage/contents/popup/popup_view', [...])
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 9 APPPATH\Controllers\manage\Popup.php(32): view('manage/layout', [...])
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\Popup->index()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\Popup))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:09:57 --> syntax error, unexpected token ":"
+in APPPATH\Views\manage\contents\popup\popup_view.php on line 23.
+ 1 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('/manage/contents/popup/popup_view', [], true)
+ 3 APPPATH\Views\manage\layout.php(60): view('/manage/contents/popup/popup_view', [...])
+ 4 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\manage\\layout.php')
+ 5 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('manage/layout', [], true)
+ 7 APPPATH\Controllers\manage\Popup.php(32): view('manage/layout', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\manage\Popup->index()
+ 9 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\manage\Popup))
+10 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:26:34 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-21 11:26:56 --> Undefined variable $base
+in APPPATH\Views\frontend\layout.php on line 57.
+ 1 APPPATH\Views\frontend\layout.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $base', 'APPPATH\\Views\\frontend\\layout.php', 57)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Home.php(59): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:31:12 --> Cannot use isset() on the result of an expression (you can use "null !== expression" instead)
+in APPPATH\Views\frontend\layout.php on line 61.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2022-12-21 11:32:37 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('popup_Popup-24.12.png')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:43 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('gioi-thieu')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:43 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('lien-he')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:43 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('laptop')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:43 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('laptop-gaming')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:43 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('mac-')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Customer.php(63): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer->register()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Customer.php(74): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer->login()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('imac-2010-21inch')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('imac-2014')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('imac-2010-27inch')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('fujisu-lifebook-uh75-k')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('hp-gaming-15-cx0054tx')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('nec-lavie')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('toshiba-t75-trang-')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('fujisu-lifebook-nh77-cd')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('nec-lavie-pc-gn16cjsaa')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('fujitsu-mv-biblo')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('toshiba-t75-aws')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('toshiba-core2')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('case-mac-pro')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('lenovo-legion-y7000')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Attempt to read property "parent_id" on null
+in APPPATH\Controllers\frontend\ShopProduct.php on line 53.
+ 1 APPPATH\Controllers\frontend\ShopProduct.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "parent_id" on null', 'APPPATH\\Controllers\\frontend\\ShopProduct.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('thirdwave-galleria-qsf960he')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('acer-nitro-5-an515-52')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Attempt to read property "parent_id" on null
+in APPPATH\Controllers\frontend\ShopProduct.php on line 53.
+ 1 APPPATH\Controllers\frontend\ShopProduct.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "parent_id" on null', 'APPPATH\\Controllers\\frontend\\ShopProduct.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('gr1650rgf-t-thirdwave-thirdwave')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('robot-hut-bui')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('may-loc-nuoc')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('chinh-sach-doi-tra')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:44 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('huong-dan-dat-hang')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:45 --> Attempt to read property "id" on null
+in APPPATH\Models\frontend\Category_model.php on line 28.
+ 1 APPPATH\Models\frontend\Category_model.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Models\\frontend\\Category_model.php', 28)
+ 2 APPPATH\Controllers\frontend\Category.php(51): App\Models\frontend\Category_model->getCategoryIdSlug('tin-cong-nghe')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Category->index('tin-cong-nghe')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Category))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:45 --> Attempt to read property "id" on null
+in APPPATH\Models\frontend\Category_model.php on line 28.
+ 1 APPPATH\Models\frontend\Category_model.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Models\\frontend\\Category_model.php', 28)
+ 2 APPPATH\Controllers\frontend\Category.php(51): App\Models\frontend\Category_model->getCategoryIdSlug('tuyen-dung')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Category->index('tuyen-dung')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Category))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 11:51:45 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 58.
+ 1 APPPATH\Views\frontend\layout.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 58)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopDiscount.php(85): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopDiscount->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopDiscount))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('gioi-thieu')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('mac-')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('laptop-gaming')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('laptop')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('lien-he')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Customer.php(74): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer->login()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Customer.php(63): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer->register()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('imac-2010-27inch')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('imac-2014')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('imac-2010-21inch')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('fujisu-lifebook-uh75-k')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('hp-gaming-15-cx0054tx')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('nec-lavie')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('toshiba-t75-trang-')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('fujisu-lifebook-nh77-cd')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('nec-lavie-pc-gn16cjsaa')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('fujitsu-mv-biblo')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('toshiba-t75-aws')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('toshiba-core2')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('case-mac-pro')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('lenovo-legion-y7000')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Attempt to read property "parent_id" on null
+in APPPATH\Controllers\frontend\ShopProduct.php on line 53.
+ 1 APPPATH\Controllers\frontend\ShopProduct.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "parent_id" on null', 'APPPATH\\Controllers\\frontend\\ShopProduct.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('thirdwave-galleria-qsf960he')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:36 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopProduct.php(73): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('acer-nitro-5-an515-52')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Attempt to read property "parent_id" on null
+in APPPATH\Controllers\frontend\ShopProduct.php on line 53.
+ 1 APPPATH\Controllers\frontend\ShopProduct.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "parent_id" on null', 'APPPATH\\Controllers\\frontend\\ShopProduct.php', 53)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopProduct->index('gr1650rgf-t-thirdwave-thirdwave')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopProduct))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('robot-hut-bui')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('chinh-sach-doi-tra')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('may-loc-nuoc')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('huong-dan-dat-hang')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Attempt to read property "id" on null
+in APPPATH\Models\frontend\Category_model.php on line 28.
+ 1 APPPATH\Models\frontend\Category_model.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Models\\frontend\\Category_model.php', 28)
+ 2 APPPATH\Controllers\frontend\Category.php(51): App\Models\frontend\Category_model->getCategoryIdSlug('tuyen-dung')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Category->index('tuyen-dung')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Category))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Attempt to read property "id" on null
+in APPPATH\Models\frontend\Category_model.php on line 28.
+ 1 APPPATH\Models\frontend\Category_model.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Models\\frontend\\Category_model.php', 28)
+ 2 APPPATH\Controllers\frontend\Category.php(51): App\Models\frontend\Category_model->getCategoryIdSlug('tin-cong-nghe')
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Category->index('tin-cong-nghe')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Category))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\ShopDiscount.php(85): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopDiscount->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopDiscount))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('mac-')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('laptop-gaming')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Customer.php(74): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer->login()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined array key "popup"
+in APPPATH\Views\frontend\layout.php on line 59.
+ 1 APPPATH\Views\frontend\layout.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "popup"', 'APPPATH\\Views\\frontend\\layout.php', 59)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Customer.php(63): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Customer->register()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Customer))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Undefined property: stdClass::$name
+in APPPATH\Controllers\frontend\ShopCategory.php on line 98.
+ 1 APPPATH\Controllers\frontend\ShopCategory.php(98): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$name', 'APPPATH\\Controllers\\frontend\\ShopCategory.php', 98)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\ShopCategory->index('laptop')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\ShopCategory))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:31:37 --> Attempt to read property "id" on null
+in APPPATH\Controllers\frontend\Page.php on line 49.
+ 1 APPPATH\Controllers\frontend\Page.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'APPPATH\\Controllers\\frontend\\Page.php', 49)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Page->index('gioi-thieu')
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Page))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-21 17:59:54 --> Undefined variable $session
+in APPPATH\Views\frontend\layout.php on line 78.
+ 1 APPPATH\Views\frontend\layout.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $session', 'APPPATH\\Views\\frontend\\layout.php', 78)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\frontend\\layout.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('frontend/layout', [], true)
+ 5 APPPATH\Controllers\frontend\Home.php(59): view('frontend/layout', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\frontend\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\frontend\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

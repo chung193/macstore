@@ -68,6 +68,21 @@ class ShopProduct extends BaseController
         );
         echo view('manage/layout',$data);
     }
+
+    public function import()
+    {
+        $model = new Shop_Product_model();
+        $number = $this->request->getPost('number');
+        $id = $this->request->getPost('id');
+        $old_qty = $this->request->getPost('old_qty');
+        $data = array(
+            'qty' => $old_qty + $number
+        );
+        $model->updateshopproduct($data, $id);
+        $session = session();
+        $session->setFlashdata('msg', 'Thông tin đã được lưu lại');
+        return redirect()->to('/manage/shop-product/');
+    }
  
     public function save()
     {

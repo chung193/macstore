@@ -138,6 +138,7 @@ $routes->group('manage', ['filter' => 'auth'], function ($routes) {
     $routes->post('shop-product/save', 'manage\ShopProduct::save');
     $routes->post('shop-product/update', 'manage\ShopProduct::update');
     $routes->get('shop-product/delete/(:num)', 'manage\ShopProduct::delete/$1');
+    $routes->post('shop-product/import', 'manage\ShopProduct::import');
 
 
     // dashboard
@@ -231,6 +232,14 @@ $routes->group('manage', ['filter' => 'auth'], function ($routes) {
     $routes->post('slider/save', 'manage\Slider::save');
     $routes->post('slider/update', 'manage\Slider::update');
     $routes->get('slider/delete/(:num)', 'manage\Slider::delete/$1');
+
+    //popup
+    $routes->get('popup', 'manage\Popup::index');
+    $routes->add('popup/edit/(:num)', 'manage\Popup::edit/$1');
+    $routes->get('popup/add', 'manage\Popup::add');
+    $routes->post('popup/save', 'manage\Popup::save');
+    $routes->post('popup/update', 'manage\Popup::update');
+    $routes->get('popup/delete/(:num)', 'manage\Popup::delete/$1');
 
 });
 

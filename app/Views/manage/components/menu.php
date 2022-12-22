@@ -81,10 +81,10 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= base_url() . '/manage/slider' ?>">Slider</a></li>
-                        <!-- <li>
+                        <li>
                             <hr class="dropdown-divider m-0">
                         </li>
-                        <li><a class="dropdown-item" href="<?= base_url() . '/manage/info' ?>">Thông tin cửa hàng/ công ty</a></li> -->
+                        <li><a class="dropdown-item" href="<?= base_url() . '/manage/popup' ?>">popup</a></li>
                     </ul>
                 </li>
 

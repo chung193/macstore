@@ -10,6 +10,7 @@ use App\Models\frontend\Shop_Product_model;
 use App\Models\frontend\Banner_model;
 use App\Models\frontend\Option_model;
 use App\Models\frontend\Menu_model;
+use App\Models\frontend\Popup_model;
 
 class Home extends BaseController
 {
@@ -24,7 +25,9 @@ class Home extends BaseController
         $banner_md = new Banner_model();
         $option_md = new Option_model();
         $jsonmenu_md = new Menu_model();
+        $popup_md = new Popup_model();
         $this->base = array(
+            'popup' => $popup_md->getPopup(),
             'ui' => $ui_md->getUi(),
             'info' => $info_md->getInfo(),
             'json_menu' => $jsonmenu_md->getmenu('main'),
